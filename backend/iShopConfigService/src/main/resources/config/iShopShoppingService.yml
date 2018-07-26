@@ -1,0 +1,18 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: shopping_microservice
+
+logging:
+  level:
+    root: ERROR
+    org:
+      springframework.: ERROR
+
+server:
+  port: 9083
+
+ordersURL: http://localhost:8094
+productsURL: http://localhost:8091

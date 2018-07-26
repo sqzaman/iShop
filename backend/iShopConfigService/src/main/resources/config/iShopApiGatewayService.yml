@@ -1,0 +1,18 @@
+server:
+  port: 8088
+  
+zuul:
+  prefix: /api
+  routes:
+    product: 
+      path: /product/**
+      serviceId: iShopProductService
+    customer: 
+      path: /customer/**
+      serviceId: iShopCustomerService
+    shopping: 
+      path: /shopping/**
+      serviceId: iShopShoppingService
+    order: 
+      path: /order/**
+      serviceId: iShopOrderService 

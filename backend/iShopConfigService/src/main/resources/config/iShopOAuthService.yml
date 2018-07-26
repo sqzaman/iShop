@@ -1,0 +1,17 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: customer_microservice
+      
+      
+
+logging:
+  level:
+    root: ERROR
+    org:
+      springframework.: ERROR
+
+server:
+  port: 9081

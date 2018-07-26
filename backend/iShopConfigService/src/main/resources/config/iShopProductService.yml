@@ -1,0 +1,19 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: product_microservice
+  activemq:
+    broker: tcp://localhost:61616
+    user: admin
+    password: admin    
+
+logging:
+  level:
+    root: ERROR
+    org:
+      springframework.: ERROR
+
+server:
+  port: 9082
