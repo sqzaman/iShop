@@ -1,9 +1,7 @@
 package ishop.oauth2.domain.model;
+
 import javax.persistence.*;
-
 import org.hibernate.annotations.NaturalId;
-
-
 
 @Entity
 @Table(name="roles")
