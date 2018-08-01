@@ -1,0 +1,6 @@
+spring:
+  application: 
+    name: iShopApiGatewayService
+  cloud:
+    config:
+      uri: http://localhost:8888 

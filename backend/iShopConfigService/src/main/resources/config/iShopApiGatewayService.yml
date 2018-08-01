@@ -1,9 +1,12 @@
 server:
-  port: 8088
+  port: 8080
   
 zuul:
   prefix: /api
   routes:
+    oauth: 
+      path: /oauth/**
+      serviceId: iShopOAuth2Service 
     product: 
       path: /product/**
       serviceId: iShopProductService

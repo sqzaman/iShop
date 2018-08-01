@@ -1,17 +1,33 @@
+server:
+  port: 9081
+  
 spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: customer_microservice
-      
-      
+  datasource:
+    url: jdbc:mysql://localhost:3306/ishop_users?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: root
+    password:  
+  jpa: 
+    properties: 
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        ddl-auto: update
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+  time-zone: UTC
+
+## App Properties
+app:
+  jwtSecret:  JWTSuperSecretKey
+  jwtExpirationInMs: 604800000
+
 
 logging:
   level:
     root: ERROR
     org:
       springframework.: ERROR
+      hibernate:
+        SQL: DEBUG
 
-server:
-  port: 9081
+
