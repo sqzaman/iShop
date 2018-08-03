@@ -4,18 +4,23 @@ server:
 zuul:
   prefix: /api
   routes:
-    oauth: 
+    oauth:
+      sensitiveHeaders: 
       path: /oauth/**
       serviceId: iShopOAuth2Service 
-    product: 
+    product:
+      sensitiveHeaders:
       path: /product/**
       serviceId: iShopProductService
-    customer: 
+    customer:
+      sensitiveHeaders: 
       path: /customer/**
       serviceId: iShopCustomerService
-    shopping: 
+    shopping:
+      sensitiveHeaders: 
       path: /shopping/**
       serviceId: iShopShoppingService
-    order: 
+    order:
+      sensitiveHeaders: 
       path: /order/**
       serviceId: iShopOrderService 
