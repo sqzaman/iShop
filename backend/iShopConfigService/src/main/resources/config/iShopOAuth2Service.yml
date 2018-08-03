@@ -24,7 +24,7 @@ app:
 
 logging:
   level:
-    root: ERROR
+    root: WARN
     org:
       springframework.: ERROR
       hibernate:

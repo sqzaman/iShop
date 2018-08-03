@@ -8,6 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.stream.Collectors;
 
 
 @Component
@@ -27,9 +28,13 @@ public class JwtTokenProvider {
 
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
-
+        
+        Claims claims = Jwts.claims().setSubject(userPrincipal.getUsername());
+        claims.put("userPrinciple", userPrincipal);
+        
         return Jwts.builder()
-                .setSubject(Long.toString(userPrincipal.getId()))
+                //.setSubject(Long.toString(userPrincipal.getId()))
+        		.setClaims(claims)
                 .setIssuedAt(new Date())
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
