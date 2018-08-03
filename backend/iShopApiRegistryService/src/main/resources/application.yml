@@ -5,6 +5,7 @@ eureka:
   server:
     #eviction-interval-timer-in-ms: 1000
     enableSelfPreservation: true
+    maxThreadsForPeerReplication: 0
   client:
     registerWithEureka: false #telling the server not to register himself
     fetchRegistry: false
