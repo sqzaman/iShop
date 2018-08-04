@@ -1,14 +1,36 @@
 package shop.customers.domain;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name="address")
 public class Address {
-	private String street;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@NotBlank
+	@Size(max = 64)
+	private String line;
+	
+	@NotBlank
+	@Size(max = 64)
 	private String city;
+	
+	@NotBlank
+	@Size(max = 64)
 	private String zip;
+	
+	@NotBlank
+	@Size(max = 64)
 	private String country;
 
-	public Address(String street, String city, String zip, String country) {
+	public Address(String line, String city, String zip, String country) {
 		super();
-		this.street = street;
+		this.line = line;
 		this.city = city;
 		this.zip = zip;
 		this.country = country;
@@ -16,15 +38,14 @@ public class Address {
 
 	public Address() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public String getStreet() {
-		return street;
+	public String getLine() {
+		return line;
 	}
 
-	public void setStreet(String street) {
-		this.street = street;
+	public void setLine(String line) {
+		this.line = line;
 	}
 
 	public String getCity() {

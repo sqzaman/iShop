@@ -1,41 +1,74 @@
 package shop.customers.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.*;
+import org.hibernate.annotations.NaturalId;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
+@Entity
+@Table(name="customers")
 public class Customer {
+	
 	@Id
-	private String customerNumber;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long customerId;
+	
+	@NotBlank
+	@Size(max = 64)
 	private String firstname;
+	
+	@NotBlank
+	@Size(max = 64)
 	private String lastname;
+	
+	@NotBlank
+	@Size(max = 64)
+	private String username;
+	
+	@NotBlank
+	@NaturalId
+	@Size(max = 64)
 	private String email;
+	
+	@NotBlank
+	@Size(max = 64)
 	private String phone;
-	private Address address;
-	private Account account;
-	private List<CreditCard> creditcards = new ArrayList<CreditCard>();
-
+	
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "shippingAddress", referencedColumnName="id", insertable=false, updatable=false)
+	private Address shippingAddress;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "billingAddress", referencedColumnName="id", insertable=false, updatable=false)
+	private Address billingAddress;
+	
 	public Customer() {
 	}
 
-	public Customer(String customerNumber, String firstname, String lastname, String email, String phone) {
+	public Customer(Long customerId, String firstname, String lastname, String email, String phone) {
 		super();
-		this.customerNumber = customerNumber;
+		this.customerId = customerId;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.phone = phone;
 	}
-
-	public String getCustomerNumber() {
-		return customerNumber;
+	
+	public Customer(String firstname, String lastname, String username, String email, String phone) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.username = username;
+		this.email = email;
+		this.phone = phone;
 	}
 
-	public void setCustomerNumber(String customerNumber) {
-		this.customerNumber = customerNumber;
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 
 	public String getFirstname() {
@@ -52,6 +85,14 @@ public class Customer {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {
@@ -70,31 +111,20 @@ public class Customer {
 		this.phone = phone;
 	}
 
-	public Address getAddress() {
-		return address;
+	public Address getShippingAddress() {
+		return shippingAddress;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setShippingAddress(Address shippingAddress) {
+		this.shippingAddress = shippingAddress;
 	}
 
-	public Account getAccount() {
-		return account;
+	public Address getBillingAddress() {
+		return billingAddress;
 	}
 
-	public void setAccount(Account account) {
-		this.account = account;
+	public void setBillingAddress(Address billingAddress) {
+		this.billingAddress = billingAddress;
 	}
 
-	public List<CreditCard> getCreditcards() {
-		return creditcards;
-	}
-
-	public void setCreditcards(List<CreditCard> creditcards) {
-		this.creditcards = creditcards;
-	}
-
-	public void addCreditCard(CreditCard creditCard) {
-		creditcards.add(creditCard);
-	}
 }

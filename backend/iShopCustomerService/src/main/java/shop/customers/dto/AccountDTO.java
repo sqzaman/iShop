@@ -1,30 +1,29 @@
-package shop.customers.service;
+package shop.customers.dto;
 
 public class AccountDTO {
-	private String accountNumber;
+	
+	private Long accountNumber;
 	private String username;
+	private String email;
 	private String password;
 
-	public AccountDTO(String accountNumber, String username, String password) {
+	public AccountDTO(Long accountNumber, String username, String email, String password) {
 		super();
 		this.accountNumber = accountNumber;
 		this.username = username;
+		this.email = email;
 		this.password = password;
 	}
 
 	public AccountDTO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public String toString() {
-		return "account:"+accountNumber+" , "+username+" , "+password;
-	}
-	public String getAccountNumber() {
+	public Long getAccountNumber() {
 		return accountNumber;
 	}
 
-	public void setAccountNumber(String accountNumber) {
+	public void setAccountNumber(Long accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
@@ -36,6 +35,14 @@ public class AccountDTO {
 		this.username = username;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -43,5 +50,5 @@ public class AccountDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 }
