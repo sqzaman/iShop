@@ -1,19 +1,13 @@
-package ishop.shopping.domain;
+package ishop.shopping.dto;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-
-@Document
-public class Product {
-	@Id
+public class ProductDto {
 	String productId;
 	String name;
 	double price;
 	String description;
 
 
-	public Product(String productId, String name, String description, double price) {
+	public ProductDto(String productId, String name, String description, double price) {
 		super();
 		this.productId = productId;
 		this.name = name;
@@ -22,30 +16,17 @@ public class Product {
 	}
 	
 
-	public Product() {
+	public ProductDto() {
 	}
-
 
 
 	public String getProductId() {
 		return productId;
 	}
 
-
 	public void setProductId(String productId) {
 		this.productId = productId;
 	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 
 	public double getPrice() {
 		return price;
@@ -61,6 +42,16 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

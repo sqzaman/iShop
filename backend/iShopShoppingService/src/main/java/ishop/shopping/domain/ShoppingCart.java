@@ -17,7 +17,7 @@ public class ShoppingCart {
 
 	public void addToCart(Product product, int quantity) {
 		for (CartLine cline : cartlineList) {
-			if (cline.getProduct().getProductnumber().equals(product.getProductnumber())) {
+			if (cline.getProduct().getProductId().equals(product.getProductId())) {
 				cline.setQuantity(cline.getQuantity()+quantity);
 				return;
 			}
@@ -28,18 +28,6 @@ public class ShoppingCart {
 		cartlineList.add(cline);
 	}
 	
-
-
-	public void print() {
-		System.out.println("Content of the shoppingcart:");
-		for (CartLine cline : cartlineList) {
-			System.out.println(cline.getQuantity() + " "
-					+ cline.getProduct().getProductnumber() + " "
-					+ cline.getProduct().getDescription() + " "
-					+ cline.getProduct().getPrice());
-		}
-		System.out.println("Total price ="+getTotalPrice());
-	}
 	
 	public double getTotalPrice(){
 		double totalPrice = 0.0;
@@ -53,7 +41,7 @@ public class ShoppingCart {
 		Iterator<CartLine> iter = cartlineList.iterator();
 		while (iter.hasNext()){
 			CartLine cline = iter.next();
-			if (cline.getProduct().getProductnumber().equals(product.getProductnumber())){
+			if (cline.getProduct().getProductId().equals(product.getProductId())){
 				if (cline.getQuantity()>1){
 					cline.setQuantity(cline.getQuantity()-1);
 				}

@@ -13,6 +13,3 @@ logging:
 
 server:
   port: 9083
-
-ordersURL: http://localhost:8094
-productsURL: http://localhost:8091

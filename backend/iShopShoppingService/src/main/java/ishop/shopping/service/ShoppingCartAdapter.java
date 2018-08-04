@@ -4,7 +4,8 @@ import ishop.shopping.domain.CartLine;
 import ishop.shopping.domain.ShoppingCart;
 
 public class ShoppingCartAdapter {
-	public static ShoppingCart getShoppingCart(ShoppingCartDTO shoppingCartDTO) {
+	/*
+	public static ShoppingCart getShoppingCart(ShoppingCartDto shoppingCartDTO) {
 		ShoppingCart shoppingCart = new ShoppingCart();
 		shoppingCart.setCartid(shoppingCartDTO.getCartid());
 		for (CartLineDTO cartLine : shoppingCartDTO.getCartlineList()) {
@@ -26,4 +27,5 @@ public class ShoppingCartAdapter {
 		}
 		return shoppingCartDTO;
 	}
+	*/
 }

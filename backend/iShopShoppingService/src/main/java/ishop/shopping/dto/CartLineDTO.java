@@ -1,14 +1,14 @@
-package ishop.shopping.service;
+package ishop.shopping.dto;
 
 public class CartLineDTO {
 	int quantity;
-	ProductDTO product;
+	ProductDto product;
 
-	public ProductDTO getProduct() {
+	public ProductDto getProduct() {
 		return product;
 	}
 
-	public void setProduct(ProductDTO product) {
+	public void setProduct(ProductDto product) {
 		this.product = product;
 	}
 

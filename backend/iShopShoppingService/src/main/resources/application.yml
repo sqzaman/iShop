@@ -1,4 +1,10 @@
  eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8081/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+    
+ app:
+  jwtSecret: JWTSuperSecretKey
+  jwtExpirationInMs: 604800000

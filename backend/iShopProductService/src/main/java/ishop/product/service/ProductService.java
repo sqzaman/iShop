@@ -132,4 +132,22 @@ public class ProductService {
 		return ResponseEntity.created(location).body(new ApiResponse(true, "Stock has been updated successfully!"));
 
 	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public ResponseEntity<?> getProduct(Optional<String> productId) {		
+		if(!productId.isPresent()) {
+			List<Product> products = productRepository.findAll();
+			return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
+		}
+		
+		Optional<Product> result = productRepository.findByProductId(productId.get());
+		
+		if(productId.isPresent())			
+			return new ResponseEntity<Product>(result.get(), HttpStatus.OK);
+		else 
+			return new ResponseEntity(new ApiResponse(false, "Specified product is not available!"),
+					HttpStatus.BAD_REQUEST);		
+
+		
+	}
 }
