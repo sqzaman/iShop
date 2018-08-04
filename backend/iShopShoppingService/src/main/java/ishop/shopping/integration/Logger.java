@@ -1,4 +1,4 @@
-package shop.shopping.integration;
+package ishop.shopping.integration;
 
 import java.util.Date;
 

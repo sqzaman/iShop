@@ -1,4 +1,4 @@
-package shop.shopping.domain;
+package ishop.shopping.domain;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

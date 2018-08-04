@@ -1,4 +1,4 @@
-package shop.shopping.service;
+package ishop.shopping.service;
 
 public class CartLineDTO {
 	int quantity;

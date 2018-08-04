@@ -1,4 +1,4 @@
-package shop.shopping.service;
+package ishop.shopping.service;
 
 import java.util.Optional;
 
@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
-import shop.shopping.domain.Product;
-import shop.shopping.domain.ShoppingCart;
-import shop.shopping.domain.ShoppingCartCheckedOutEvent;
-import shop.shopping.integration.OrderProxy;
-import shop.shopping.integration.ProductCatalogProxy;
-import shop.shopping.repository.ShoppingCartRepository;
+import ishop.shopping.domain.Product;
+import ishop.shopping.domain.ShoppingCart;
+import ishop.shopping.domain.ShoppingCartCheckedOutEvent;
+import ishop.shopping.integration.OrderProxy;
+import ishop.shopping.integration.ProductCatalogProxy;
+import ishop.shopping.repository.ShoppingCartRepository;
 
 @Service
 public class ShoppingService {

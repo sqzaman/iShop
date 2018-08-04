@@ -1,4 +1,4 @@
-package shop.shopping.integration;
+package ishop.shopping.integration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,7 +6,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import shop.shopping.service.ProductDTO;
+import ishop.shopping.service.ProductDTO;
+
 import org.springframework.cloud.openfeign.FeignClient;
 
 

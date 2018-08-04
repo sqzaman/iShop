@@ -1,4 +1,4 @@
-package shop.shopping.web;
+package ishop.shopping.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import shop.shopping.domain.Product;
-import shop.shopping.domain.ShoppingCart;
-import shop.shopping.service.ShoppingCartDTO;
-import shop.shopping.service.ShoppingService;
+import ishop.shopping.domain.Product;
+import ishop.shopping.domain.ShoppingCart;
+import ishop.shopping.service.ShoppingCartDTO;
+import ishop.shopping.service.ShoppingService;
 
 @RestController
 public class ShoppingController {

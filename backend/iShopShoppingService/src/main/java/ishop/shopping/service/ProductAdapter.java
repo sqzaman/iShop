@@ -1,6 +1,6 @@
-package shop.shopping.service;
+package ishop.shopping.service;
 
-import shop.shopping.domain.Product;
+import ishop.shopping.domain.Product;
 
 public class ProductAdapter {
 	public static Product getProduct(ProductDTO productDTO) {

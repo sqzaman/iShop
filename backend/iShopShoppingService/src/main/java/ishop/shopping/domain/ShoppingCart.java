@@ -1,4 +1,4 @@
-package shop.shopping.domain;
+package ishop.shopping.domain;
 
 import java.util.ArrayList;
 import java.util.Iterator;

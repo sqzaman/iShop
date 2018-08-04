@@ -1,7 +1,7 @@
-package shop.shopping.service;
+package ishop.shopping.service;
 
-import shop.shopping.domain.CartLine;
-import shop.shopping.domain.ShoppingCart;
+import ishop.shopping.domain.CartLine;
+import ishop.shopping.domain.ShoppingCart;
 
 public class ShoppingCartAdapter {
 	public static ShoppingCart getShoppingCart(ShoppingCartDTO shoppingCartDTO) {

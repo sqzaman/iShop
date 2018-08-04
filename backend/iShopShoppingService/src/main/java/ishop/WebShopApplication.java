@@ -1,4 +1,4 @@
-package shop;
+package ishop;
 
 
 import org.springframework.boot.SpringApplication;
