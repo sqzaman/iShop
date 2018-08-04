@@ -34,7 +34,7 @@ public class CategoryController {
 	}
 	
 	@GetMapping(value = {"/get", "/get/{id}"})
-	public ResponseEntity<?> getCategory(@PathVariable Optional<Integer> categoryId) {
-		return productService.getCategory(categoryId);
+	public ResponseEntity<?> getCategory(@PathVariable(value="id",required=false) Optional<Integer> id) {
+		return productService.getCategory(id);
 	}
 }
