@@ -14,11 +14,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.Id;
 
@@ -56,6 +58,12 @@ public class Product {
 	@JoinColumn(name = "category_id")
 	private Category category;
 	
+	@JsonInclude()
+	@Transient
+	private Long categoryId;
+	
+	
+
 	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<ProductImage> productImages = new ArrayList<ProductImage>();
 
@@ -137,6 +145,9 @@ public class Product {
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	public Long getCategoryId() {
+		return this.category.getId();
 	}
 
 }
