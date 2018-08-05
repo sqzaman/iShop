@@ -1,5 +1,8 @@
 package ishop.customers.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 import org.hibernate.annotations.NaturalId;
 import javax.validation.constraints.NotBlank;
@@ -31,13 +34,18 @@ public class Customer {
 	@Size(max = 64)
 	private String phone;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "shippingAddress", referencedColumnName="id", insertable=false, updatable=false)
-	private Address shippingAddress;
+	//@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "shippingAddress", referencedColumnName="id", insertable=false, updatable=false)
+	@OneToOne(cascade = CascadeType.ALL)
+    private Address shippingAddress;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "billingAddress", referencedColumnName="id", insertable=false, updatable=false)
-	private Address billingAddress;
+	//@OneToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "billingAddress", referencedColumnName="id", insertable=false, updatable=false)
+	@OneToOne(cascade = CascadeType.ALL)
+    private Address billingAddress;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<CreditCard> creditCards = new ArrayList<CreditCard>();
 	
 	public Customer() {
 	}
@@ -105,6 +113,14 @@ public class Customer {
 
 	public void setBillingAddress(Address billingAddress) {
 		this.billingAddress = billingAddress;
+	}
+
+	public List<CreditCard> getCreditCards() {
+		return creditCards;
+	}
+
+	public void setCreditCards(List<CreditCard> creditCards) {
+		this.creditCards = creditCards;
 	}
 
 }

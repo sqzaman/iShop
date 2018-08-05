@@ -27,7 +27,10 @@ public class Address {
 	@NotBlank
 	@Size(max = 64)
 	private String country;
-
+	
+	@OneToOne
+	private Customer customer;
+	
 	public Address(String line, String city, String zip, String country) {
 		super();
 		this.line = line;
@@ -70,6 +73,22 @@ public class Address {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 }
