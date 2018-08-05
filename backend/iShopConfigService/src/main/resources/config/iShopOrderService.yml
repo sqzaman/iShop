@@ -18,5 +18,7 @@ logging:
 server:
   port: 8094
   
-customersURL: http://localhost:8092
-productsURL: http://localhost:8091
+## App Properties
+app:
+ jwtSecret: JWTSuperSecretKey
+ jwtExpirationInMs: 604800000
