@@ -1,4 +1,4 @@
-package shop.customers.domain;
+package ishop.customers.domain;
 
 import javax.persistence.*;
 import org.hibernate.annotations.NaturalId;
@@ -21,10 +21,7 @@ public class Customer {
 	@Size(max = 64)
 	private String lastname;
 	
-	@NotBlank
-	@Size(max = 64)
-	private String username;
-	
+
 	@NotBlank
 	@NaturalId
 	@Size(max = 64)
@@ -45,23 +42,14 @@ public class Customer {
 	public Customer() {
 	}
 
-	public Customer(Long customerId, String firstname, String lastname, String email, String phone) {
+	public Customer(String firstname, String lastname, String email, String phone) {
 		super();
-		this.customerId = customerId;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.phone = phone;
 	}
-	
-	public Customer(String firstname, String lastname, String username, String email, String phone) {
-		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.username = username;
-		this.email = email;
-		this.phone = phone;
-	}
+
 
 	public Long getCustomerId() {
 		return customerId;
@@ -85,16 +73,8 @@ public class Customer {
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
-	}
+	}	
 	
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public String getEmail() {
 		return email;
 	}

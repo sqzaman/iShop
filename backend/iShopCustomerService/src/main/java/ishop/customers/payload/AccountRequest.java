@@ -1,30 +1,21 @@
-package shop.customers.dto;
+package ishop.customers.payload;
 
-public class AccountDTO {
-	
-	private Long accountNumber;
+public class AccountRequest {
 	private String username;
 	private String email;
+	private String name;
 	private String password;
 
-	public AccountDTO(Long accountNumber, String username, String email, String password) {
+	public AccountRequest(String username, String email, String fullName, String password) {
 		super();
-		this.accountNumber = accountNumber;
 		this.username = username;
 		this.email = email;
+		this.name = fullName;
 		this.password = password;
 	}
 
-	public AccountDTO() {
+	public AccountRequest() {
 		super();
-	}
-
-	public Long getAccountNumber() {
-		return accountNumber;
-	}
-
-	public void setAccountNumber(Long accountNumber) {
-		this.accountNumber = accountNumber;
 	}
 
 	public String getUsername() {
@@ -43,6 +34,15 @@ public class AccountDTO {
 		this.email = email;
 	}
 
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -50,5 +50,6 @@ public class AccountDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	
 }

@@ -1,4 +1,4 @@
-package shop.customers.domain;
+package ishop.customers.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

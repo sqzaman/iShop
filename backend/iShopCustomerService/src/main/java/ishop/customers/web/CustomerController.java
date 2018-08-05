@@ -1,4 +1,4 @@
-package shop.customers.web;
+package ishop.customers.web;
 
 import javax.validation.Valid;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import shop.customers.payload.CustomerSignUpRequest;
-import shop.customers.service.CustomerService;
+import ishop.customers.payload.CustomerSignUpRequest;
+import ishop.customers.service.CustomerService;
 
 @RestController
 public class CustomerController {

@@ -1,4 +1,4 @@
-package shop.customers.payload;
+package ishop.customers.payload;
 
 
 public class ApiResponse {
