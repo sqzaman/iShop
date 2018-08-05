@@ -11,7 +11,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class ShoppingCart {
 	@Id
-	String cartid;
+	String cartId;
+	
+	Long customerId;
+	
+	Boolean ordered = false;
+	
+	
 	
 	ArrayList<CartLine> cartlineList = new ArrayList<CartLine>();
 
@@ -52,12 +58,12 @@ public class ShoppingCart {
 		}
 	}
 
-	public String getCartid() {
-		return cartid;
+	public String getCartId() {
+		return cartId;
 	}
 
-	public void setCartid(String cartid) {
-		this.cartid = cartid;
+	public void setCartId(String cartId) {
+		this.cartId = cartId;
 	}
 
 	public ArrayList<CartLine> getCartlineList() {
@@ -67,5 +73,27 @@ public class ShoppingCart {
 	public void setCartlineList(ArrayList<CartLine> cartlineList) {
 		this.cartlineList = cartlineList;
 	}
+
+
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+
+
+	public Boolean getOrdered() {
+		return ordered;
+	}
+
+
+	public void setOrdered(Boolean ordered) {
+		this.ordered = ordered;
+	}
+	
+	
 
 }

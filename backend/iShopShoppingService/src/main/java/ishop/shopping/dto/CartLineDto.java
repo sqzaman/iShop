@@ -1,6 +1,6 @@
 package ishop.shopping.dto;
 
-public class CartLineDTO {
+public class CartLineDto {
 	int quantity;
 	ProductDto product;
 

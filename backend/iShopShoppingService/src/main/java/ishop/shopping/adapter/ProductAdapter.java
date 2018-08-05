@@ -14,13 +14,13 @@ public class ProductAdapter {
 		return product;				
 	}
 	
-	public static ProductDto getProductDTO(Product product) {
-		ProductDto productDTO = new ProductDto(
+	public static ProductDto getProductDto(Product product) {
+		ProductDto productDto = new ProductDto(
 				product.getProductId(),
 				product.getName(),
 				product.getDescription(),
 				product.getPrice()
 				);		
-		return productDTO;				
+		return productDto;				
 	}
 }

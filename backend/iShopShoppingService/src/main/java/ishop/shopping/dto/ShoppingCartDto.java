@@ -2,10 +2,10 @@ package ishop.shopping.dto;
 
 import java.util.ArrayList;
 
-public class ShoppingCartDTO {
+public class ShoppingCartDto {
 	private String cartid;
 	private double totalPrice;
-	private ArrayList<CartLineDTO> cartlineList = new ArrayList<CartLineDTO>();
+	private ArrayList<CartLineDto> cartlineList = new ArrayList<CartLineDto>();
 
 
 	public String getCartid() {
@@ -16,15 +16,15 @@ public class ShoppingCartDTO {
 		this.cartid = cartid;
 	}
 
-	public ArrayList<CartLineDTO> getCartlineList() {
+	public ArrayList<CartLineDto> getCartlineList() {
 		return cartlineList;
 	}
 
-	public void setCartlineList(ArrayList<CartLineDTO> cartlineList) {
+	public void setCartlineList(ArrayList<CartLineDto> cartlineList) {
 		this.cartlineList = cartlineList;
 	}
 	
-	public void addCartLine(CartLineDTO cartLine) {
+	public void addCartLine(CartLineDto cartLine) {
 		cartlineList.add(cartLine);
 	}
 

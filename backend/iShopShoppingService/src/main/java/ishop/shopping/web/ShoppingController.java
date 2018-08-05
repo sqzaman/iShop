@@ -16,6 +16,7 @@ import ishop.security.CurrentUser;
 import ishop.security.UserPrincipal;
 import ishop.shopping.domain.Product;
 import ishop.shopping.domain.ShoppingCart;
+import ishop.shopping.dto.ShoppingCartDto;
 import ishop.shopping.payload.ShoppingRequest;
 import ishop.shopping.service.ShoppingService;
 
@@ -27,7 +28,7 @@ public class ShoppingController {
 	@PostMapping(value = "/addToCart")
 	@PreAuthorize("hasRole('CUSTOMER')")
 	public ResponseEntity<?> addToCart(@CurrentUser UserPrincipal currentUser, @Valid @RequestBody ShoppingRequest shoppingRequest) {
-		return shoppingService.addToCart(shoppingRequest);
+		return shoppingService.addToCart(shoppingRequest, currentUser);
 	
 	}
 	
@@ -36,11 +37,12 @@ public class ShoppingController {
 	public ResponseEntity<?> getCart(@PathVariable String cartId, @CurrentUser UserPrincipal currentUser) {
 		return shoppingService.getCart(cartId);
 	}
-	/*
+	
 	@PostMapping(value = "/cart/checkout/{cartId}")
-	public ResponseEntity<?> checkoutCart(@PathVariable String cartId) {
+	@PreAuthorize("hasRole('CUSTOMER')")
+	public ResponseEntity<?> checkoutCart(@CurrentUser UserPrincipal currentUser, @PathVariable String cartId) {
 		shoppingService.checkout(cartId);
-		return new ResponseEntity<ShoppingCartDTO>(HttpStatus.OK);		
+		return new ResponseEntity<ShoppingCartDto>(HttpStatus.OK);		
 	}
-	*/
+	
 }

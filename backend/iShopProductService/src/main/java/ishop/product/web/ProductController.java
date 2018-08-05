@@ -1,10 +1,15 @@
 package ishop.product.web;
 
+import java.io.IOException;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,8 +48,9 @@ public class ProductController {
 	}
 	
 	@GetMapping(value = {"/get", "/get/{id}"})
-	public ResponseEntity<?> getProduct(@PathVariable(value="id",required=false) Optional<String> id) {
+	public ResponseEntity<?> getProduct(@PathVariable(value="id", required=false) Optional<String> id) {
 		return productService.getProduct(id);
 	}
-
+	
+	
 }
