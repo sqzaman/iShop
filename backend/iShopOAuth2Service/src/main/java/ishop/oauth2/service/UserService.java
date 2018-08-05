@@ -83,6 +83,12 @@ public class UserService {
 				.buildAndExpand(result.getUsername()).toUri();
 
 		return ResponseEntity.created(location).body(new ApiResponse(true, "User registered successfully"));
-
+	}
+	
+	public String getEmail(String username) {
+		
+		User user = userRepository.findByUsername(username).orElse(null);
+		if(user!=null) return user.getEmail();
+		return null;
 	}
 }
