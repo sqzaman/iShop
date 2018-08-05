@@ -1,6 +1,7 @@
 spring:
   application: 
-    name: WebshopCustomerService
-  cloud:
-    config:
-      uri: http://localhost:8888 
+    name: iShopCustomerService
+  #cloud:
+  #  config:
+  #    uri: http://localhost:8888
+  

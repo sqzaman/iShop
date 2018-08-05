@@ -1,9 +1,11 @@
 package shop.customers.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import shop.customers.domain.Customer;
 
-public interface CustomerRepository extends MongoRepository<Customer, String> {
-
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+	
+	Boolean existsByEmail(String email);
+	Boolean existsByUsername(String username);
 }
