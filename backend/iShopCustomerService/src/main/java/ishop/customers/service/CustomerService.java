@@ -1,6 +1,7 @@
 package ishop.customers.service;
 
 import java.net.URI;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -54,12 +55,14 @@ public class CustomerService {
 		} else {
 			return new ResponseEntity(new ApiResponse(false, "Something problem in your data, please check! May be username already in use!"), HttpStatus.BAD_REQUEST);
 		}
-
-		
-		
-	
-		
-	
-
 	}
+		@SuppressWarnings({ "rawtypes", "unchecked" })
+		public ResponseEntity<?> getCustomer(Long id) {
+			Optional<Customer> customer = customerRepository.findById(id);
+			if(customer.isPresent()) {
+				return new ResponseEntity<Customer>(customer.get(), HttpStatus.OK);
+			} else {
+				return new ResponseEntity(new ApiResponse(false, "Email Address already in use!"), HttpStatus.BAD_REQUEST);
+			}
+		}
 }

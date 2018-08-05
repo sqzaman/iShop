@@ -13,13 +13,8 @@ public class ProductCatalogProxy {
 
 	@Autowired
 	ProductFeignClient productClient;
-	//@Autowired
-	//private RestOperations restTemplate;
-	@Value("${productsURL}")
-	String productsURL;
 
 	public void updateStock(String productNumber, int quantity) {
-		//restTemplate.postForLocation(productsURL + "/updateStock/" + productNumber + "/" + quantity, null);
 		productClient.updateStock(productNumber, quantity);
 	};
 

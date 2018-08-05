@@ -1,34 +1,27 @@
-package ishop.order.domain;
+package ishop.order.dto;
 
-
-public class Customer {
+public class CustomerDto {
 	private Long customerId;
 	private String firstname;
 	private String lastname;
 	private String email;
 	private String phone;
+	private AddressDto billingAddress;
+	private AddressDto shippingAddress;
 
-
-	public Customer(Long customerId, String firstname, String lastname, String email, String phone) {
+	public CustomerDto(Long customerId, String firstname, String lastname, String email, String phone) {
 		super();
 		this.customerId = customerId;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.phone = phone;
+
 	}
 
-	public Customer() {
+	public CustomerDto() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public Long getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(Long customerId) {
-		this.customerId = customerId;
 	}
 
 	public String getFirstname() {
@@ -63,5 +56,30 @@ public class Customer {
 		this.phone = phone;
 	}
 
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+
+	public AddressDto getBillingAddress() {
+		return billingAddress;
+	}
+
+	public void setBillingAddress(AddressDto billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+
+	public AddressDto getShippingAddress() {
+		return shippingAddress;
+	}
+
+	public void setShippingAddress(AddressDto shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
+
+	
 
 }
