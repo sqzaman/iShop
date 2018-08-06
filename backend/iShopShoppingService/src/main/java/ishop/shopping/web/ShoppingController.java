@@ -3,6 +3,7 @@ package ishop.shopping.web;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import ishop.security.CurrentUser;
@@ -40,8 +42,9 @@ public class ShoppingController {
 	
 	@PostMapping(value = "/cart/checkout/{cartId}")
 	@PreAuthorize("hasRole('CUSTOMER')")
-	public ResponseEntity<?> checkoutCart(@CurrentUser UserPrincipal currentUser, @PathVariable String cartId) {
-		shoppingService.checkout(cartId);
+	public ResponseEntity<?> checkoutCart(@RequestHeader HttpHeaders headers, @CurrentUser UserPrincipal currentUser, 
+			@PathVariable String cartId) {
+		shoppingService.checkout(cartId, headers);
 		return new ResponseEntity<ShoppingCartDto>(HttpStatus.OK);		
 	}
 	

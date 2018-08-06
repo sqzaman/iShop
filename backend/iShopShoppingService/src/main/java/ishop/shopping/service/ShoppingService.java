@@ -3,6 +3,7 @@ package ishop.shopping.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -78,7 +79,7 @@ public class ShoppingService {
 	
 
 
-	public void checkout(String cartId) {
+	public void checkout(String cartId, HttpHeaders headers) {
 		Optional<ShoppingCart> cartOpt = shoppingCartRepository.findById(cartId);
 		if (cartOpt.isPresent()) {
 			ShoppingCart cart = cartOpt.get();
@@ -86,7 +87,7 @@ public class ShoppingService {
 			//ShoppingCartCheckedOutEvent event = new ShoppingCartCheckedOutEvent(cart);
 			//publisher.publishEvent(event);
 			
-			orderProxy.createOrder(ShoppingCartAdapter.getShoppingCartDto(cart));
+			orderProxy.createOrder(ShoppingCartAdapter.getShoppingCartDto(cart), headers);
 		}		
 	}
 	

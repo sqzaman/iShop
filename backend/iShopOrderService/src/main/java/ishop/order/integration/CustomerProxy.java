@@ -3,6 +3,7 @@ package ishop.order.integration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,14 +19,14 @@ public class CustomerProxy {
 	CustomerFeignClient customerClient;
 
 	public CustomerDto getOrderCustomer(Long customerId) {
-		CustomerDto customer = customerClient.getCustomer(customerId);
+		CustomerDto customer = customerClient.getCustomer();
 		return customer;
 	};
 	
 	@FeignClient("iShopCustomerService")
 	interface CustomerFeignClient {
-		@RequestMapping("/get/{id}")
-		public CustomerDto getCustomer(@PathVariable("id") Long id);
+		@GetMapping("/get")
+		public CustomerDto getCustomer();
 	}
 }
 
