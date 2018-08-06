@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="address")
 public class Address {
@@ -14,7 +16,8 @@ public class Address {
 	
 	@NotBlank
 	@Size(max = 64)
-	private String line;
+	private String street;
+	
 	
 	@NotBlank
 	@Size(max = 64)
@@ -26,16 +29,22 @@ public class Address {
 	
 	@NotBlank
 	@Size(max = 64)
+	private String state;
+	
+	@NotBlank
+	@Size(max = 64)
 	private String country;
 	
+	@JsonIgnore
 	@OneToOne
 	private Customer customer;
 	
-	public Address(String line, String city, String zip, String country) {
+	public Address(String street, String city, String zip, String state, String country) {
 		super();
-		this.line = line;
+		this.street = street;
 		this.city = city;
 		this.zip = zip;
+		this.state = state;
 		this.country = country;
 	}
 
@@ -43,12 +52,21 @@ public class Address {
 		super();
 	}
 
-	public String getLine() {
-		return line;
+
+	public String getStreet() {
+		return street;
 	}
 
-	public void setLine(String line) {
-		this.line = line;
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	public String getCity() {
