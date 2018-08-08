@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../services/category_services/category.service';
-import { Observable } from 'rxjs';
+import { CategoriesService } from '../../services/categories/categories.service';
 
 @Component({
   selector: 'app-categories',
@@ -11,10 +10,10 @@ export class CategoriesComponent implements OnInit {
 
   categories : Object;
 
-  constructor(private data: CategoryService) { }
+  constructor(private service: CategoriesService) { }
 
   ngOnInit() {
-    this.data.getCategories().subscribe(
+    this.service.getCategories().subscribe(
       data => this.categories = data
     )
   }

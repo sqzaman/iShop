@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './model/user';
-import { UserService } from './service/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,57 +7,9 @@ import { UserService } from './service/user.service';
 })
 export class SignupComponent implements OnInit {
 
-  user: User = new User();
-  submitted: boolean = false;
-  success: boolean = false;
-  failed: boolean = false;
-  message: string = "";
-
- 
-  constructor(private userService: UserService) { }
-
+  constructor() { }
 
   ngOnInit() {
-   // this.response = new Response();
   }
 
-  newUser(): void {
-    this.submitted = false;
-    this.user = new User();
-  }
- 
-  save() {
-    this.user.username = this.user.email;
-    if(this.user.password !=  this.user.confirmPassword){
-      this.message = "Password should be matched!"
-      this.failed = true;
-      return false;
-    }
-    this.userService.createUser(this.user)
-      .subscribe((data) => {
-        console.log(data);
-        this.success = JSON.parse(JSON.stringify(data)).ok;
-        this.message = JSON.parse(JSON.stringify(data)).message;
-        this.user = new User();
-      }, (error) => {
-      //  this.response = new Response(error);
-       // this.response = error;
-       // console.log(error.error);
-        this.failed = !JSON.parse(JSON.stringify(error.error)).ok;
-        this.message = JSON.parse(JSON.stringify(error.error)).message;
-      });
-      console.log("========================");
-      //console.log( this.response);
-      console.log("========================");
-      if(this.success){
-        this.submitted = true;
-        this.user = new User();
-      }
-    
-  }
- 
-  onSubmit() {
-    //this.submitted = true;
-    this.save();
-  }
 }
