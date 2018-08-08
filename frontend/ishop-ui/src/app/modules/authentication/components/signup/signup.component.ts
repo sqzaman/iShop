@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './model/user';
+import { Error } from './model/error';
 import { UserService } from './service/user.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class SignupComponent implements OnInit {
   success: boolean = false;
   failed: boolean = false;
   message: string = "";
+   
 
  
   constructor(private userService: UserService) { }
@@ -44,13 +46,18 @@ export class SignupComponent implements OnInit {
       }, (error) => {
       //  this.response = new Response(error);
        // this.response = error;
-       // console.log(error.error);
+        //console.log(error.error.errors);
+
         this.failed = !JSON.parse(JSON.stringify(error.error)).ok;
-        this.message = JSON.parse(JSON.stringify(error.error)).message;
+
+        error.error.errors.forEach(element => {
+          this.message += element.defaultMessage + "<br/>";
+        });
+        //this.message = JSON.parse(JSON.stringify(error.error)).message;
       });
-      console.log("========================");
-      //console.log( this.response);
-      console.log("========================");
+     // console.log("========================");
+      //console.log( this.errors);
+     // console.log("========================");
       if(this.success){
         this.submitted = true;
         this.user = new User();
@@ -60,6 +67,9 @@ export class SignupComponent implements OnInit {
  
   onSubmit() {
     //this.submitted = true;
+    this.success = false;
+    this.failed = false;
+    this.message = "";
     this.save();
   }
 }

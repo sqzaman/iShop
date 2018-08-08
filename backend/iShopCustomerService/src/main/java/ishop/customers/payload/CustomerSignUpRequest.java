@@ -2,31 +2,35 @@ package ishop.customers.payload;
 
 import javax.validation.constraints.*;
 
+import org.springframework.core.annotation.Order;
+
 
 public class CustomerSignUpRequest {
 	
-    @NotBlank
+    @NotBlank(message = "Firstname cannot be empty!")
     @Size(min = 4, max = 40)
+    @Order(1)
     private String firstName;
     
-    @NotBlank
+    @NotBlank(message = "Lastname cannot be empty!")
     @Size(min = 4, max = 40)
+    @Order(2)
     private String lastName;
 
-    @NotBlank
+    @NotBlank(message = "Username cannot be empty!")
     @Size(min = 4, max = 40)
     private String username;
 
-    @NotBlank
+    @NotBlank(message = "Email cannot be empty!")
     @Size(max = 40)
     @Email
     private String email;
     
-    @NotBlank
+    @NotBlank(message = "Phone cannot be empty!")
     @Size(max = 40)
     private String phone;
 
-    @NotBlank
+    @NotBlank(message = "Password cannot be empty!")
     @Size(min = 6, max = 20)
     private String password;
 

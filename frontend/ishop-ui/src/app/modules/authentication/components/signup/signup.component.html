@@ -11,7 +11,7 @@
         <article class="card-body">
           <!--<div [hidden]="submitted" style="width: 300px;">-->
               <div [hidden]="!failed" class="alert alert-danger" role="alert">
-                  {{ message }}
+                  <p  [innerHtml]="message"></p>
                 </div>
                 <div [hidden]="!success" class="alert alert-success" role="alert">
                     {{ message }}
