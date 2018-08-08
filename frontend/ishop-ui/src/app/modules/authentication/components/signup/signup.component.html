@@ -1,3 +1,83 @@
-<p>
-  signup works!
-</p>
+<div class="container">
+  <br>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <header class="card-header">
+          <a href="" class="float-right btn btn-outline-primary mt-1">Log in</a>
+          <h4 class="card-title mt-2">Sign up</h4>
+        </header>
+        <article class="card-body">
+          <!--<div [hidden]="submitted" style="width: 300px;">-->
+              <div [hidden]="!failed" class="alert alert-danger" role="alert">
+                  {{ message }}
+                </div>
+                <div [hidden]="!success" class="alert alert-success" role="alert">
+                    {{ message }}
+                  </div>
+            <form (ngSubmit)="onSubmit()">
+              <div class="form-row">
+                <div class="col form-group">
+                  <label>First name </label>
+                  <input type="text" class="form-control" required [(ngModel)]="user.firstName" name="firstName">
+                </div>
+                <!-- form-group end.//  -->
+                <div class="col form-group">
+                  <label>Last name</label>
+                  <input type="text" class="form-control"  required [(ngModel)]="user.lastName" name="lastName">
+                </div>
+                <!-- form-group end.// -->
+              </div>
+              <!-- form-row end.// -->
+              <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control"  required [(ngModel)]="user.email" name="email">
+                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <!-- form-group end.// -->
+
+
+              <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" type="password"  required [(ngModel)]="user.password" name="password">
+              </div>
+              <!-- form-group end.// -->
+              <div class="form-group">
+                <label>Confirm Password</label>
+                <input class="form-control" type="password"  required [(ngModel)]="user.confirmPassword" name="confirmPassword">
+              </div>
+              <!-- form-group end.// -->
+              <div class="form-group">
+                <label>Phone</label>
+                <input class="form-control" type="text"  [(ngModel)]="user.phone" name="phone" required>
+              </div>
+              <!-- form-group end.// -->
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"> Register </button>
+              </div>
+              <!-- form-group// -->
+              <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our
+                <br> Terms of use and Privacy Policy.</small>
+            </form>
+          <!--</div>-->
+          <div [hidden]="!submitted">
+              <h4>You submitted successfully!</h4>
+              <button class="btn btn-success" (click)="newCustomer()">Add</button>
+            </div>
+        </article>
+        <!-- card-body end .// -->
+        <div class="border-top card-body text-center">Have an account?
+          <a href="">Log In</a>
+        </div>
+      </div>
+      <!-- card.// -->
+    </div>
+    <!-- col.//-->
+
+  </div>
+  <!-- row.//-->
+
+
+</div>
+<!--container end.//-->
