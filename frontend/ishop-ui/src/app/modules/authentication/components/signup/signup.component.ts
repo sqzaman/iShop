@@ -3,6 +3,7 @@ import { User } from './model/user';
 import { Error } from './model/error';
 import { UserService } from './service/user.service';
 
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -22,7 +23,6 @@ export class SignupComponent implements OnInit {
 
 
   ngOnInit() {
-   // this.response = new Response();
   }
 
   newUser(): void {
@@ -72,4 +72,5 @@ export class SignupComponent implements OnInit {
     this.message = "";
     this.save();
   }
+
 }
