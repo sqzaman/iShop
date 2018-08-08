@@ -1,7 +1,10 @@
 package ishop.customers.payload;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ApiResponse {
+	@JsonProperty("ok")
     private Boolean success;
     private String message;
 
