@@ -4,7 +4,8 @@ import { LandingPageComponent } from './modules/home/components/landing-page/lan
 import { ProductsComponent } from './modules/products/components/products/products.component';
 import { OrdersComponent } from './modules/orders/components/orders/orders.component';
 import { SignupComponent } from './modules/authentication/components/signup/signup.component'
-
+import { SigninComponent } from './modules/authentication/components/signin/signin.component'
+import { ProfileComponent } from './modules/authentication/components/profile/profile.component'
 const routes: Routes = [
     {
         path: '',
@@ -21,6 +22,15 @@ const routes: Routes = [
     {
         path: 'signup',
         component: SignupComponent
+    },
+    {
+        path: 'signin',
+        component: SigninComponent
+    }
+    ,
+    {
+        path: 'profile',
+        component: ProfileComponent
     }
 ];
 

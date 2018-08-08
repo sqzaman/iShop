@@ -15,9 +15,28 @@
           <li class="nav-item">
             <a class="nav-link" href="/orders">Orders</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/signup">Account</a>
+
+          <li *ngIf="!userLoggedIn" class="nav-item">
+            <a class="nav-link" href="/signup">Signup</a>
           </li>
+          <li *ngIf="!userLoggedIn" class="nav-item">
+              <a class="nav-link" href="/signin">Signin</a>
+            </li>
+        </ul>
+
+        <ul *ngIf="userLoggedIn" class="navbar-nav ">
+            <!-- PROFILE DROPDOWN - scrolling off the page to the right -->
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="navDropDownLink" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Profile
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navDropDownLink">
+                    <a class="dropdown-item" href="#">Preferences</a>
+                    <div class="dropdown-divider"></div>
+                    <button id="logout-button" class="dropdown-item" (click)="logout()">Logout</button>
+                </div>
+            </li>
         </ul>
       </div>
     </div>
