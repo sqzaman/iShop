@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserProfileService } from '../service/user-profile.service';
 
 @Component({
   selector: 'app-profile-overview',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileOverviewComponent implements OnInit {
 
-  constructor() { }
+  userProfile: any;
+  constructor(private userProfileService: UserProfileService){
+  }
 
   ngOnInit() {
+    this.userProfileService.getProfile().subscribe(
+      (data) => {
+        this.userProfile = data;
+        //this.router.navigate(['profile']);
+
+      }, (error) => {
+          console.log(error);
+      }
+    );
   }
 
 }

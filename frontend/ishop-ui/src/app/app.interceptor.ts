@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {TokenStorage} from '../app/modules/authentication/components/signin/service/token.storage';
+import {TokenStorage} from './modules/authentication/components/signin/service/token.storage';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
 @Injectable({
     providedIn: 'root'
   })
-export class Interceptor implements HttpInterceptor {
+export class JwtInterceptor implements HttpInterceptor {
     userLoggedIn: boolean;
     accessToken: string = '';
     constructor(private token: TokenStorage ) {   
