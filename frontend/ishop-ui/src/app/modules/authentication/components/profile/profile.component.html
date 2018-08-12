@@ -1,0 +1,40 @@
+<!--
+<div class="container">
+    <div class="row">
+      <div class="col-md-3 ">
+           <div class="list-group ">
+                <a href="/profile" routerLink="/profile/overview" routerLinkActive="active" class="list-group-item list-group-item-action">Profile</a>
+                <a href="/profile/edit" routerLink="/profile/edit" routerLinkActive="active" class="fa fa-envelope  list-group-item list-group-item-action">Edit</a>
+                <a href="/profile/edit/billing-address" class="list-group-item list-group-item-action">Edit Billing address</a>
+                <a href="/profile/edit/shipping-address" class="list-group-item list-group-item-action">Edit Shipping address</a>
+            </div> 
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+-->
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="list-group ">
+                <a href="/profile" routerLink="/profile/overview" routerLinkActive="active" class="list-group-item list-group-item-action">Profile</a>
+                <a href="/profile/edit" routerLink="/profile/edit" routerLinkActive="active" class="fa fa-envelope  list-group-item list-group-item-action">Edit</a>
+                <a href="/profile/edit/billing-address" class="list-group-item list-group-item-action">Edit Billing address</a>
+                <a href="/profile/edit/shipping-address" class="list-group-item list-group-item-action">Edit Shipping address</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
