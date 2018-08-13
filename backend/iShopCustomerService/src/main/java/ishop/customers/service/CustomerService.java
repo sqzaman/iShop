@@ -24,6 +24,7 @@ import ishop.customers.payload.AddressRequest;
 import ishop.customers.payload.ApiResponse;
 import ishop.customers.payload.CreditCardRequest;
 import ishop.customers.payload.CustomerSignUpRequest;
+import ishop.customers.payload.CustomerUpdateRequest;
 import ishop.customers.repository.CustomerRepository;
 import ishop.security.CurrentUser;
 import ishop.security.UserPrincipal;
@@ -64,6 +65,34 @@ public class CustomerService {
 			return new ResponseEntity(
 					new ApiResponse(false,
 							"Something problem in your data, please check! May be username already in use!"),
+					HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public ResponseEntity<?> updateCustomert(CustomerUpdateRequest customerUpdateRequest, UserPrincipal currentUser) {
+		Customer customer = customerRepository.findByEmail(currentUser.getEmail());
+		Customer updateResult = null;
+		if (customer == null) {
+			return new ResponseEntity(new ApiResponse(false, "Customer not found!"), HttpStatus.BAD_REQUEST);
+		}
+
+		customer.setFirstname(customerUpdateRequest.getFirstname());
+		customer.setLastname(customerUpdateRequest.getLastname());
+		customer.setPhone(customerUpdateRequest.getPhone());
+
+		updateResult = customerRepository.save(customer);
+
+		if (updateResult != null) {
+			URI location = ServletUriComponentsBuilder.fromCurrentContextPath()
+					.path("/customer/" + updateResult.getCustomerId()).buildAndExpand(updateResult.getCustomerId()).toUri();
+
+			return ResponseEntity.created(location).body(new ApiResponse(true, "Customer record is updated successfully!"));
+
+		} else {
+			return new ResponseEntity(
+					new ApiResponse(false,
+							"Something problem in your data, please check! Update request failed!"),
 					HttpStatus.BAD_REQUEST);
 		}
 	}
@@ -114,13 +143,12 @@ public class CustomerService {
 	public ResponseEntity<?> getCustomer(UserPrincipal currentUser) {
 
 		Customer customer = customerRepository.findByEmail(currentUser.getEmail());
-		if(customer != null) {
+		if (customer != null) {
 			return new ResponseEntity<Customer>(customer, HttpStatus.OK);
 		}
-		
-		return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Specified customer is not available!"),
-				HttpStatus.BAD_REQUEST);		
 
+		return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Specified customer is not available!"),
+				HttpStatus.BAD_REQUEST);
 
 	}
 }

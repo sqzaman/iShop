@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ishop.customers.payload.AddressRequest;
 import ishop.customers.payload.CreditCardRequest;
 import ishop.customers.payload.CustomerSignUpRequest;
+import ishop.customers.payload.CustomerUpdateRequest;
 import ishop.customers.service.CustomerService;
 import ishop.security.CurrentUser;
 import ishop.security.UserPrincipal;
@@ -27,6 +28,12 @@ public class CustomerController {
 	@PostMapping(value = "/signup")
 	public ResponseEntity<?> addCustomer(@Valid @RequestBody CustomerSignUpRequest customerSignUpRequest) {
 		return customerService.createAccount(customerSignUpRequest);
+	}
+	
+	@PostMapping(value = "/update")
+	@PreAuthorize("hasRole('CUSTOMER')")
+	public ResponseEntity<?> updateCustomer(@Valid @RequestBody CustomerUpdateRequest customerUpdateRequest, @CurrentUser UserPrincipal currentUser) {
+		return customerService.updateCustomert(customerUpdateRequest, currentUser);
 	}
 	
 	@PostMapping(value = "/addAddress")

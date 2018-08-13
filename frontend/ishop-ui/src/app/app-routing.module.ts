@@ -7,7 +7,9 @@ import { SignupComponent } from './modules/authentication/components/signup/sign
 import { SigninComponent } from './modules/authentication/components/signin/signin.component';
 import { ProfileComponent } from './modules/authentication/components/profile/profile.component';
 import { ProfileEditComponent } from './modules/authentication/components/profile/profile-edit/profile-edit.component';
-import { ProfileOverviewComponent } from './modules/authentication/components/profile/profile-overview/profile-overview.component'
+import { ProfileOverviewComponent } from './modules/authentication/components/profile/profile-overview/profile-overview.component';
+import { ProfileBillingComponent } from './modules/authentication/components/profile/profile-billing/profile-billing.component';
+import { ProfileShippingComponent } from './modules/authentication/components/profile/profile-shipping/profile-shipping.component';
 const routes: Routes = [
     {
         path: '',
@@ -36,6 +38,8 @@ const routes: Routes = [
         children: [
             { path: 'overview', component: ProfileOverviewComponent },
             { path: 'edit', component: ProfileEditComponent },
+            { path: 'edit/billing-address', component: ProfileBillingComponent },
+            { path: 'edit/shipping-address', component: ProfileShippingComponent },
             { path: '', redirectTo:'overview', pathMatch:"full" }
         ]
     }

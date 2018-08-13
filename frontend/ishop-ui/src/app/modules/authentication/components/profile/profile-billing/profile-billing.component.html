@@ -1,0 +1,55 @@
+<article class="card-body">
+    <div class="row">
+            <div class="col-md-12">
+                <h4>Edit Your Billing Address</h4>
+                <hr>
+            </div>
+        </div>
+    <!--<div [hidden]="submitted" style="width: 300px;">-->
+        <div [hidden]="!failed" class="alert alert-danger" role="alert">
+            <p  [innerHtml]="message"></p>
+          </div>
+          <div [hidden]="!success" class="alert alert-success" role="alert">
+              {{ message }}
+            </div>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="col form-group">
+            <label>Street</label>
+            <input type="text" class="form-control" required [(ngModel)]="billingAddress.street" name="street">
+          </div>
+          <!-- form-group end.//  -->
+          <div class="col form-group">
+            <label>City</label>
+            <input type="text" class="form-control"  required [(ngModel)]="billingAddress.city" name="city">
+          </div>
+          <!-- form-group end.// -->
+        </div>
+        <!-- form-row end.// -->
+        <div class="form-group">
+          <label>Zip</label>
+          <input type="email" class="form-control"  required [(ngModel)]="billingAddress.zip" name="zip">
+        </div>
+        <!-- form-group end.// -->
+
+        <div class="form-group">
+          <label>State</label>
+          <input class="form-control" type="text"  [(ngModel)]="billingAddress.state" name="state" required>
+        </div>
+
+        <!-- form-group end.// -->
+        <div class="form-group">
+            <label>Country</label>
+            <input class="form-control" type="text"  [(ngModel)]="billingAddress.country" name="country" required>
+          </div>
+
+        <!-- form-group end.// -->
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block"> Update </button>
+        </div>
+        <!-- form-group// -->
+       
+      </form>
+    <!--</div>-->
+
+  </article>

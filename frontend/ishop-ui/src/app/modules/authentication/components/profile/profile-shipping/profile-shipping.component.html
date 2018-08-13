@@ -1,0 +1,48 @@
+<article class="card-body">
+    <div class="row">
+            <div class="col-md-12">
+                <h4>Edit Your Shipping Address</h4>
+                <hr>
+            </div>
+        </div>
+    <!--<div [hidden]="submitted" style="width: 300px;">-->
+        <div [hidden]="!failed" class="alert alert-danger" role="alert">
+            <p  [innerHtml]="message"></p>
+          </div>
+          <div [hidden]="!success" class="alert alert-success" role="alert">
+              {{ message }}
+            </div>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="col form-group">
+            <label>First name </label>
+            <input type="text" class="form-control" required [(ngModel)]="userProfile.firstname" name="firstname">
+          </div>
+          <!-- form-group end.//  -->
+          <div class="col form-group">
+            <label>Last name</label>
+            <input type="text" class="form-control"  required [(ngModel)]="userProfile.lastname" name="lastname">
+          </div>
+          <!-- form-group end.// -->
+        </div>
+        <!-- form-row end.// -->
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" class="form-control"  required [(ngModel)]="userProfile.email" name="email">
+        </div>
+        <!-- form-group end.// -->
+
+        <div class="form-group">
+          <label>Phone</label>
+          <input class="form-control" type="text"  [(ngModel)]="userProfile.phone" name="phone" required>
+        </div>
+        <!-- form-group end.// -->
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block"> Update </button>
+        </div>
+        <!-- form-group// -->
+       
+      </form>
+    <!--</div>-->
+
+  </article>
