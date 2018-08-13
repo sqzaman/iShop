@@ -20,10 +20,16 @@
                             </p>
                         <hr class="my-4">
                         <h3 class="display-9">Billing Address</h3>
-                        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                        <p>
+                                <i class="material-icons">my_location</i>
+                           {{userProfile?.billingAddress?.street}}, {{userProfile?.billingAddress?.city}},  {{userProfile?.billingAddress?.zip}}, {{userProfile?.billingAddress?.state}}, {{userProfile?.billingAddress?.country}}
+                            </p>
                         <hr class="my-4">
                         <h3 class="display-9">Shipping Address</h3>
-                        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                        <p *ngIf="userProfile?.shippingAddress">
+                                <i class="fa fa-truck"></i>
+                                {{userProfile?.shippingAddress?.street}}, {{userProfile?.shippingAddress?.city}},  {{userProfile?.shippingAddress?.zip}}, {{userProfile?.shippingAddress?.state}}, {{userProfile?.shippingAddress?.country}}
+                            </p>
                         <p class="lead">
                           <a class="btn btn-primary btn-lg" href="/profile/edit" role="button">Edit</a>
                         </p>

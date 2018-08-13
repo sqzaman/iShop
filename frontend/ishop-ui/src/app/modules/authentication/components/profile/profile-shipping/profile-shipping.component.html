@@ -1,7 +1,7 @@
 <article class="card-body">
     <div class="row">
             <div class="col-md-12">
-                <h4>Edit Your Shipping Address</h4>
+                <h4>Edit Shiping Address</h4>
                 <hr>
             </div>
         </div>
@@ -15,27 +15,34 @@
       <form (ngSubmit)="onSubmit()">
         <div class="form-row">
           <div class="col form-group">
-            <label>First name </label>
-            <input type="text" class="form-control" required [(ngModel)]="userProfile.firstname" name="firstname">
+            <label>Street</label>
+            <input type="text" class="form-control" required [(ngModel)]="shiipingAddress.street" name="street">
           </div>
           <!-- form-group end.//  -->
           <div class="col form-group">
-            <label>Last name</label>
-            <input type="text" class="form-control"  required [(ngModel)]="userProfile.lastname" name="lastname">
+            <label>City</label>
+            <input type="text" class="form-control"  required [(ngModel)]="shiipingAddress.city" name="city">
           </div>
           <!-- form-group end.// -->
         </div>
         <!-- form-row end.// -->
         <div class="form-group">
-          <label>Email address</label>
-          <input type="email" class="form-control"  required [(ngModel)]="userProfile.email" name="email">
+          <label>Zip</label>
+          <input type="email" class="form-control"  required [(ngModel)]="shiipingAddress.zip" name="zip">
         </div>
         <!-- form-group end.// -->
 
         <div class="form-group">
-          <label>Phone</label>
-          <input class="form-control" type="text"  [(ngModel)]="userProfile.phone" name="phone" required>
+          <label>State</label>
+          <input class="form-control" type="text"  [(ngModel)]="shiipingAddress.state" name="state" required>
         </div>
+
+        <!-- form-group end.// -->
+        <div class="form-group">
+            <label>Country</label>
+            <input class="form-control" type="text"  [(ngModel)]="shiipingAddress.country" name="country" required>
+          </div>
+
         <!-- form-group end.// -->
         <div class="form-group">
           <button type="submit" class="btn btn-primary btn-block"> Update </button>

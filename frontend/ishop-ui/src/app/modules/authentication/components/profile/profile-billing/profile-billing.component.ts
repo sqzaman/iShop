@@ -36,7 +36,7 @@ export class ProfileBillingComponent implements OnInit {
   }
 
   save() {
-    this.billingAddress.addressType = 2; // billing address
+    this.billingAddress.addressType = 1; // billing address
     this.userProfileService.updateBillingAddress(this.billingAddress)
       .subscribe((data) => {
         console.log(data);
