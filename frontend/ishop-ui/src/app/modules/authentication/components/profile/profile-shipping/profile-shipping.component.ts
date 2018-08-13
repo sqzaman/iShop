@@ -10,7 +10,7 @@ import { UserProfileService } from '../service/user-profile.service';
 export class ProfileShippingComponent implements OnInit {
 
  
-  shiipingAddress: Address = new Address();
+  shippingAddress: Address = new Address();
   submitted: boolean = false;
   success: boolean = false;
   failed: boolean = false;
@@ -23,11 +23,11 @@ export class ProfileShippingComponent implements OnInit {
   ngOnInit() {
     this.userProfileService.getProfile().subscribe(
       (data) => {
-        let address = JSON.parse(JSON.stringify(data)).shiipingAddress ;
-        console.log(this.shiipingAddress);
+        let address = JSON.parse(JSON.stringify(data)).shippingAddress ;
+        console.log(this.shippingAddress);
         if(address != null) {
-          this.shiipingAddress = address;
-          console.log(this.shiipingAddress);
+          this.shippingAddress = address;
+          console.log(this.shippingAddress);
         }
       }, (error) => {
           console.log(error);
@@ -36,8 +36,8 @@ export class ProfileShippingComponent implements OnInit {
   }
 
   save() {
-    this.shiipingAddress.addressType = 0; // shipping address
-    this.userProfileService.updateBillingAddress(this.shiipingAddress)
+    this.shippingAddress.addressType = 0; // shipping address
+    this.userProfileService.updateBillingAddress(this.shippingAddress)
       .subscribe((data) => {
         console.log(data);
         this.success = JSON.parse(JSON.stringify(data)).ok;
