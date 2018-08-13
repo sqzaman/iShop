@@ -38,8 +38,8 @@ const routes: Routes = [
         children: [
             { path: 'overview', component: ProfileOverviewComponent },
             { path: 'edit', component: ProfileEditComponent },
-            { path: 'edit/billing-address', component: ProfileBillingComponent },
-            { path: 'edit/shipping-address', component: ProfileShippingComponent },
+            { path: 'billing-address', component: ProfileBillingComponent },
+            { path: 'shipping-address', component: ProfileShippingComponent },
             { path: '', redirectTo:'overview', pathMatch:"full" }
         ]
     }
