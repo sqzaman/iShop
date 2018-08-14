@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="list-group ">
+
+                <a href="/admin" routerLink="/admin/overview" routerLinkActive="active" class="list-group-item list-group-item-action">
+                  <i class="fa fa-dashboard">&nbsp;</i>
+                    Dasboard
+                   
+                </a>
+                <a href="/admin/product-category" routerLink="/admin/product-category" routerLinkActive="active" class="list-group-item list-group-item-action">
+                    <i class="fa fa-edit">&nbsp;</i>
+                    Product Categories</a>
+                <a href="/admin/product" routerLink="/admin/product" routerLinkActive="active" class="list-group-item list-group-item-action">
+                    <i class="fa fa-address-card-o">&nbsp;</i>
+                    Products</a>
+                 
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

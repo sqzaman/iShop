@@ -63,6 +63,33 @@ public class ProductService {
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public ResponseEntity<?> updateCategory(CategoryRequest categoryRequest, Long catId) {
+		/*
+			if (categoryRepository.existsByName(categoryRequest.getName())) {
+				return new ResponseEntity(
+						new ApiResponse(false, "Already there is category named " + categoryRequest.getName()),
+						HttpStatus.BAD_REQUEST);
+			}
+		*/
+		Category category = categoryRepository.findById(catId).orElse(null);
+		if (category != null) {
+			category.setName(categoryRequest.getName());
+			category.setDescription(categoryRequest.getDescription());
+			Category result = categoryRepository.save(category);
+			URI location = ServletUriComponentsBuilder.fromCurrentContextPath().path("/category/{id}")
+					.buildAndExpand(result.getId()).toUri();
+
+			return ResponseEntity.created(location).body(new ApiResponse(true, "Category has been updated successfully!"));
+		}
+
+		return new ResponseEntity(
+				new ApiResponse(false, "There is no such  category found!" + catId),
+				HttpStatus.BAD_REQUEST);
+
+
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ResponseEntity<?> getCategory(Optional<Integer> categoryId) {
 		
 		if(!categoryId.isPresent()) {
@@ -149,5 +176,43 @@ public class ProductService {
 					HttpStatus.BAD_REQUEST);		
 
 		
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public ResponseEntity<?> getProductById(Long id) {		
+		
+		Optional<Product> result = productRepository.findById(id);
+		
+		if(result.isPresent())			
+			return new ResponseEntity<Product>(result.get(), HttpStatus.OK);
+		else 
+			return new ResponseEntity(new ApiResponse(false, "Specified product is not available!"),
+					HttpStatus.BAD_REQUEST);		
+
+		
+	}
+	
+	public ResponseEntity<?> updateProduct(ProductRequest productRequest, Long productId) {
+
+		Product product = productRepository.findById(productId).orElse(null);
+		if (product != null) {
+			product.setProductId(productRequest.getProductId());
+			product.setName(productRequest.getName());
+			product.setDescription(productRequest.getDescription());
+			product.setPrice(productRequest.getPrice());
+			product.setCategory(categoryRepository.findById(productRequest.getCategoryId()).orElse(null));
+			Product result = productRepository.save(product);
+
+			URI location = ServletUriComponentsBuilder.fromCurrentContextPath().path("/product/{productId}")
+					.buildAndExpand(result.getProductId()).toUri();
+
+			return ResponseEntity.created(location).body(new ApiResponse(true, "Product has been updated successfully!"));
+		} else {
+			return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Specified product is not available!"),
+					HttpStatus.BAD_REQUEST);		
+		}
+
+		
+
 	}
 }

@@ -10,6 +10,15 @@ import { ProfileEditComponent } from './modules/authentication/components/profil
 import { ProfileOverviewComponent } from './modules/authentication/components/profile/profile-overview/profile-overview.component';
 import { ProfileBillingComponent } from './modules/authentication/components/profile/profile-billing/profile-billing.component';
 import { ProfileShippingComponent } from './modules/authentication/components/profile/profile-shipping/profile-shipping.component';
+
+// admin route import
+import { AdminComponent } from './modules/admin/admin/admin.component';
+import { AdminOverviewComponent } from './modules/admin/admin-overview/admin-overview.component';
+import { AdminProductCategoryComponent } from './modules/admin/admin-product-category/admin-product-category.component';
+import { AdminProductComponent } from './modules/admin/admin-product/admin-product.component';
+import { NewCategoryComponent } from './modules/admin/admin-product-category/new-category/new-category.component';
+import { NewProductComponent } from './modules/admin/admin-product/new-product/new-product.component';
+import { UploadProductImageComponent } from './modules/admin/admin-product/upload-product-image/upload-product-image.component';
 const routes: Routes = [
     {
         path: '',
@@ -40,6 +49,22 @@ const routes: Routes = [
             { path: 'edit', component: ProfileEditComponent },
             { path: 'billing-address', component: ProfileBillingComponent },
             { path: 'shipping-address', component: ProfileShippingComponent },
+            { path: '', redirectTo:'overview', pathMatch:"full" }
+        ]
+    }
+    ,
+    {
+        path: 'admin',
+        component: AdminComponent,
+        children: [
+            { path: 'overview', component: AdminOverviewComponent },
+            { path: 'product', component: AdminProductComponent },
+            { path: 'product/new', component: NewProductComponent },
+            { path: 'product/edit/:id', component: NewProductComponent },
+            { path: 'product/image-upload/:id', component: UploadProductImageComponent },
+            { path: 'product-category', component: AdminProductCategoryComponent },
+            { path: 'product-category/new', component: NewCategoryComponent },
+            { path: 'product-category/edit/:id', component: NewCategoryComponent },
             { path: '', redirectTo:'overview', pathMatch:"full" }
         ]
     }

@@ -47,10 +47,20 @@ public class ProductController {
 		return productService.updateStock(stockUpdateRequest);
 	}
 	
-	@GetMapping(value = {"/get", "/get/{id}"})
+	@GetMapping(value = {"/get", "/get/{id}"}) // using productId
 	public ResponseEntity<?> getProduct(@PathVariable(value="id", required=false) Optional<String> id) {
 		return productService.getProduct(id);
 	}
 	
 	
+	@GetMapping(value = {"/getById/{id}"}) // using id
+	public ResponseEntity<?> getProductById(@PathVariable(value="id", required=true) Long id) {
+		return productService.getProductById(id);
+	}
+	
+	@PostMapping(value = "/update/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
+	public ResponseEntity<?> updateProduct(@Valid @RequestBody ProductRequest productRequest, @PathVariable(value="id", required=true) Long id) {
+		return productService.updateProduct(productRequest, id);
+	}
 }

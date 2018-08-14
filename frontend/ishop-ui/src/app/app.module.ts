@@ -7,7 +7,7 @@ import { HomeModule } from './modules/home/home.module';
 import { ProductsModule } from './modules/products/products.module';
 import { OrdersModule } from './modules/orders/orders.module';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
-
+import { AdminModule } from './modules/admin/admin.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
@@ -27,7 +27,8 @@ import { JwtInterceptor } from "./app.interceptor";
     AuthenticationModule,
     HomeModule,
     ProductsModule,
-    OrdersModule
+    OrdersModule,
+    AdminModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]

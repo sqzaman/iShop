@@ -30,14 +30,14 @@ public class FileController {
 
 	@PostMapping("/uploadFile/{productId}")
 	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable String productId) {
+	public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable Long productId) {
 		return fileUploadService.uploadImage(file, productId);
 	}
 
 	@PostMapping("/uploadMultipleFiles/{productId}")
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files,
-			@PathVariable String productId) {
+			@PathVariable Long productId) {
 		return fileUploadService.uploadImages(files, productId);
 	}
 

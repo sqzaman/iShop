@@ -1,0 +1,60 @@
+<article class="card-body">
+  <div class="row">
+    <div class="col-md-12">
+      <h4 [innerHtml]="pageHeading"></h4>
+      <hr>
+    </div>
+  </div>
+  <div [hidden]="!failed" class="alert alert-danger" role="alert">
+    <p [innerHtml]="message"></p>
+  </div>
+  <div [hidden]="!success" class="alert alert-success" role="alert">
+    {{ message }}
+  </div>
+  <form (ngSubmit)="onSubmit()">
+
+      <div class="form-row">
+          <div class="col form-group">
+            <label>Product Id</label>
+            <input type="text" class="form-control" required [(ngModel)]="product.productId" name="productId">
+          </div>
+        </div>
+
+    <div class="form-row">
+      <div class="col form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" required [(ngModel)]="product.name" name="name">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label>Description</label>
+        <textarea [(ngModel)]="product.description" id="description" name="description" cols="40" rows="4" class="form-control"></textarea>
+      </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="col form-group">
+          <label>Price</label>
+          <input type="text" class="form-control" required [(ngModel)]="product.price" name="price">
+        </div>
+      </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label>Category</label>
+        <select class="form-control" required [(ngModel)]="product.categoryId" id="categoryId" name="categoryId">
+            <option *ngFor="let cat of productCategories" [value]="cat.id">{{cat.name}}</option>
+          </select>
+      </div>
+    </div>
+    <!-- form-group end.// -->
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block"> Save </button>
+    </div>
+    <!-- form-group// -->
+
+  </form>
+  <!--</div>-->
+
+</article>

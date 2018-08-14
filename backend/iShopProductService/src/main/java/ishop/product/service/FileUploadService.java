@@ -30,12 +30,13 @@ public class FileUploadService {
 	private ProductRepository productRepository;
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public ResponseEntity<?> uploadImage(MultipartFile file, String productId) {
+	public ResponseEntity<?> uploadImage(MultipartFile file, Long productId) {
 		String fileName = fileStorageService.storeFile(file);
 
 		String fileUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/productImage/").path(fileName)
 				.toUriString();
-		Product product = productRepository.findByProductId(productId).orElse(null);
+		//Product product = productRepository.findByProductId(productId).orElse(null);
+		Product product = productRepository.findById(productId).orElse(null);
 		if (product != null) {
 			ProductImage productImage = productImageRepository
 					.save(new ProductImage(product, fileName, fileUri, file.getContentType(), file.getSize()));
@@ -51,9 +52,10 @@ public class FileUploadService {
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public ResponseEntity<?> uploadImages(MultipartFile[] files, String productId) {
+	public ResponseEntity<?> uploadImages(MultipartFile[] files, Long productId) {
 
-		Product product = productRepository.findByProductId(productId).orElse(null);
+		//Product product = productRepository.findByProductId(productId).orElse(null);
+		Product product = productRepository.findById(productId).orElse(null);
 		List<UploadFileResponse> uploadFileResponses = new ArrayList<>();
 		if (product != null) {
 			for (MultipartFile file : files) {

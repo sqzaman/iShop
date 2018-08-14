@@ -1,0 +1,35 @@
+<div class="card-body">
+  <div class="row">
+    <div class="col-md-12">
+        <span style="font-size: 1.5em"> Product Category List</span>
+            <span style="float:right;">
+                <a class="btn btn-primary" href="/admin/product-category/new" role="button">Add New Category</a>
+            </span>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Total products</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let category of categories; let ndx = index" >
+              <th scope="row">{{ ndx + 1 }}</th>
+              <td>  {{category.name}} </td>
+              <td>{{category.description}} </td>
+              <td>{{category.products.length}}</td>
+              <td><a [routerLink]="['edit', category.id]" ><i class="fa fa-edit">&nbsp;</i></a></td>
+            </tr>           
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>

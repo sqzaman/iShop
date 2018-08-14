@@ -1,0 +1,38 @@
+<article class="card-body">
+    <div class="row">
+            <div class="col-md-12">
+                <h4 [innerHtml]="pageHeading"></h4>
+                <hr>
+            </div>
+        </div>
+        <div [hidden]="!failed" class="alert alert-danger" role="alert">
+            <p  [innerHtml]="message"></p>
+          </div>
+          <div [hidden]="!success" class="alert alert-success" role="alert">
+              {{ message }}
+            </div>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="col form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" required [(ngModel)]="category.name" name="name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col form-group">
+            <label>Description</label>
+            <textarea [(ngModel)]="category.description" id="description" name="description" cols="40" rows="4" class="form-control"></textarea>
+          </div>
+          <!-- form-group end.// -->
+        </div>
+
+        <!-- form-group end.// -->
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block"> Save </button>
+        </div>
+        <!-- form-group// -->
+       
+      </form>
+    <!--</div>-->
+
+  </article>

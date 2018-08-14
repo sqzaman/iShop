@@ -1,0 +1,41 @@
+<div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+          <span style="font-size: 1.5em"> Product List</span>
+              <span style="float:right;">
+                  <a class="btn btn-primary" href="/admin/product/new" role="button">Add New Product</a>
+              </span>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products; let ndx = index" >
+                <th scope="row">{{ ndx + 1 }}</th>
+                <td>  {{product.productId}} </td>
+                <td>  {{product.name}} </td>
+                <td>{{product.description}} </td>
+                <td>{{product.price}}</td>
+                <td>
+                  <a [routerLink]="['edit', product.id]" ><i class="fa fa-edit">&nbsp;</i></a>
+                  <a [routerLink]="['image-upload', product.id]" ><i class="fa fa-file-image-o">&nbsp;</i></a>
+                
+                </td>
+              </tr>           
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>

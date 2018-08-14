@@ -33,6 +33,12 @@ public class CategoryController {
 		return productService.addCategory(categoryRequest);
 	}
 	
+	@PostMapping(value = "/update/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
+	public ResponseEntity<?> updateCategory(@Valid @RequestBody CategoryRequest categoryRequest, @PathVariable(value="id", required = true) Long catId) {
+		return productService.updateCategory(categoryRequest, catId);
+	}
+	
 	@GetMapping(value = {"/get", "/get/{id}"})
 	public ResponseEntity<?> getCategory(@PathVariable(value="id",required=false) Optional<Integer> id) {
 		return productService.getCategory(id);

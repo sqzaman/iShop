@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenStorage} from '../../../modules/authentication/components/signin/service/token.storage';
 import {Router} from '@angular/router';
-import {Role} from "../../components/model/role";
-import {AuthService} from '../../../../app/modules/authentication/components/signin/service/auth.service';
+import {Role} from "../model/role";
+import {AuthService} from '../../../modules/authentication/components/signin/service/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
