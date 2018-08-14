@@ -4,3 +4,7 @@
       defaultZone: http://localhost:8081/eureka/
     registerWithEureka: false
     fetchRegistry: true
+ spring:
+  servlet:
+    multipart:
+      location: C://tmp

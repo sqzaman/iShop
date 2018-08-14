@@ -42,7 +42,7 @@ export class AdminService{
     return this.http.get(this.globals.BASE_API_URL+"product/get");
   }
 
-  getProduct(id: number ): Observable<Object> {
+  getProduct(id: Number ): Observable<Object> {
     return this.http.get(this.globals.BASE_API_URL + "product/getById/" + id);
   }
 
@@ -62,7 +62,8 @@ export class AdminService{
   }
 
   postFile(fileToUpload: File, productId: Number): Observable<Object> {
-    const endpoint = 'http://localhost:9091/uploadFile/' + productId;
+   // let endpoint = 'http://localhost:9091/uploadFile/' + productId;
+   let endpoint = this.globals.BASE_API_URL + 'product/uploadFile/' + productId;
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
     return this.http.post(endpoint, formData);//, { headers: yourHeadersConfig });

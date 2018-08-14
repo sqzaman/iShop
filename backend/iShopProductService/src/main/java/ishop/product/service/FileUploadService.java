@@ -41,8 +41,9 @@ public class FileUploadService {
 			ProductImage productImage = productImageRepository
 					.save(new ProductImage(product, fileName, fileUri, file.getContentType(), file.getSize()));
 
-			return new ResponseEntity<UploadFileResponse>(new UploadFileResponse(productImage.getFileName(),
-					productImage.getFileUri(), productImage.getFileType(), productImage.getSize()), HttpStatus.OK);
+			//return new ResponseEntity<UploadFileResponse>(new UploadFileResponse(productImage.getFileName(),
+			//		productImage.getFileUri(), productImage.getFileType(), productImage.getSize()), HttpStatus.OK);
+			return new ResponseEntity<ProductImage>(productImage, HttpStatus.OK);
 
 		} else {
 			return new ResponseEntity(new ApiResponse(false, "Specified product is not available!"),

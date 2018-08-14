@@ -1,4 +1,26 @@
 <article class="card-body">
+
+    <div class="row">
+        <div class="col-md-12">
+          <h4>Existing product images</h4>
+          <hr>
+
+          <div class="row">
+              <div class="col-lg-4 col-md-6 mb-4" *ngFor="let img of productImages">
+                <div class="card h-100">
+                  <a href="#"><img width="250" height="150" class="card-img-top" src="{{img.fileUri}}" alt=""></a>
+          
+                </div>
+              </div>
+            </div>
+
+
+        </div>
+      </div>
+
+
+      <hr>
+
   <div class="row">
     <div class="col-md-12">
       <h4>Upload product Image</h4>
