@@ -38,6 +38,12 @@ public class OrderController {
 		return orderService.createOrder(shoppingCartDto, currentUser);
 	}
 	
+	@PostMapping("/confirm/{orderNumber}")
+	@PreAuthorize("hasRole('CUSTOMER')")
+	public ResponseEntity<?> confirm(@PathVariable String orderNumber) {
+		return orderService.confirm(orderNumber);
+	}
+	
 	/*
 	@PostMapping("/confirm/{orderNumber}")
 	@PreAuthorize("hasRole('CUSTOMER')")

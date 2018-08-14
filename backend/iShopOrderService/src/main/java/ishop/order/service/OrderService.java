@@ -72,6 +72,23 @@ public class OrderService {
 
 	}
 	
+	public ResponseEntity<?> confirm(String orderNumber) {
+		Optional<Order> optOrder = orderRepository.findById(orderNumber);
+		if (optOrder.isPresent()) {
+			Order order= optOrder.get();
+			order.confirm();
+			//emailSender.sendEmail("Thank you for your order with order number "+order.getOrdernumber(), "customer@gmail.com");
+			logger.log("new order with order number "+ order.getOrderId());
+			orderRepository.save(order);
+			
+			return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Thank you very much for confirming your order!"),
+					HttpStatus.OK);
+		}  else {
+			return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Specified order is not available!"),
+					HttpStatus.BAD_REQUEST);
+		}
+	}
+	
 	/*
 	public void confirm(String orderNumber) {
 		Optional<Order> optOrder = orderRepository.findById(orderNumber);
