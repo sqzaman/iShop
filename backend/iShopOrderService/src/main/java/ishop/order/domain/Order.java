@@ -1,5 +1,7 @@
 package ishop.order.domain;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Order {
 	@Id
 	private String orderId;
-	private Date date;
+	private LocalDateTime date;
 	private OrderStatus status;
 	private Customer customer;	
 	private Address billingAddress;
@@ -22,7 +24,7 @@ public class Order {
 	public Order() {
 	}
 
-	public Order(String orderId, Customer customer, Address billingAddress, Address shippingAddress, Date date, OrderStatus status) {
+	public Order(String orderId, Customer customer, Address billingAddress, Address shippingAddress, LocalDateTime date, OrderStatus status) {
 		super();
 		this.orderId = orderId;
 		this.customer = customer;
@@ -54,11 +56,11 @@ public class Order {
 		this.orderId = orderId;
 	}
 
-	public Date getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 
@@ -79,7 +81,7 @@ public class Order {
 	}
 
 	public void confirm() {
-		this.status = OrderStatus.CONFIRMD;		
+		this.status = OrderStatus.CONFIRMED;		
 	}
 
 	public Customer getCustomer() {

@@ -1,0 +1,12 @@
+#orders p{
+    margin: unset;
+}
+.confirm {
+    float: right;
+    display: inline-block;
+    background-color: limegreen;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+}

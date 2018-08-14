@@ -1,5 +1,7 @@
 package ishop.order.service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import ishop.order.adapter.CustomerAdapter;
@@ -22,7 +24,7 @@ public class OrderFactory {
 	
 	public static Order createOrder(ShoppingCartDto cartDto, CustomerDto customerDto) {
 				
-		Order order = new Order(cartDto.getCartid(), CustomerAdapter.getCustomer(customerDto), BillingAddressAdapter.getBillingAddress(customerDto), ShippingAddressAdapter.getShippingAddress(customerDto), new Date(),   OrderStatus.PLACED);
+		Order order = new Order(cartDto.getCartid(), CustomerAdapter.getCustomer(customerDto), BillingAddressAdapter.getBillingAddress(customerDto), ShippingAddressAdapter.getShippingAddress(customerDto), LocalDateTime.now(),   OrderStatus.PLACED);
 		for (CartLineDto cline : cartDto.getCartlineList()) {
 			OrderLine oline = new OrderLine();
 			//create an order product from a shopping product
