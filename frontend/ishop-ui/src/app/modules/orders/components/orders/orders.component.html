@@ -15,10 +15,14 @@
         <div class="card" *ngFor="let order of orders; let ndx = index">
           <div class="card-header" role="tab" id="heading-{{ndx}}">
             <h5 class="mb-0">
-              <a aria-expanded="true" data-toggle="collapse" href="#collapse-{{ndx}}" aria-expanded="true" aria-controls="collapseOne">
-                  <label>Order Id:</label> {{order.orderId}}
-              </a>
-              <span class="{{order.status | lowercase}}" >{{order.status}} </span>
+              <a aria-expanded="false" data-toggle="collapse" href="#collapse-{{ndx}}" attr.aria-controls="collapse-{{ndx}}"> 
+               <!--   <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-{{ndx}}" aria-expanded="false" aria-controls="collapse-{{ndx}}">-->
+                  <label>{{ ndx + 1 }} &nbsp;Order Id:</label> {{order.orderId}}
+                <!--  </button> -->
+             </a>
+              <span class="{{order.status | lowercase}}" >
+                  <i class="fa fa-check-circle">&nbsp;</i>
+                {{order.status}} </span>
             </h5>
           </div>
       
@@ -28,7 +32,15 @@
                 <div class="row">
                     <div class="col-md-12">
                 <div class="jumbotron">
-                    <h1 id="customer-name" class="display-4">{{ order?.customer.firstname}} {{ order?.customer.lastname}}</h1>
+
+                    <p class="lead">
+                        <i class="fa fa-calendar" style="font-size:24px">&nbsp;</i>
+                      {{ order?.date}}</p>
+                      <hr class="my-4">
+                 
+                    <p class="lead">
+                        <i class="fa fa-user-circle" style="font-size:24px">&nbsp;</i>
+                      {{ order?.customer.firstname}} {{ order?.customer.lastname}}</p>
                     <p class="lead">
                             <i class="fa fa-envelope icon">&nbsp;</i>
                         {{ order?.customer.email }}
@@ -76,12 +88,6 @@
 
             </div>
           </div>
-        </div>
-
-
-        
-
+        </div>   
       </div>
-  
-  
   </article>
