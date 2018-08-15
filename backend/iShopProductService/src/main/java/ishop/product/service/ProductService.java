@@ -12,6 +12,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import ishop.product.domain.Category;
 import ishop.product.domain.Product;
+import ishop.product.domain.ProductImage;
 import ishop.product.domain.Stock;
 import ishop.product.payload.ApiResponse;
 import ishop.product.payload.CategoryRequest;
@@ -214,5 +215,22 @@ public class ProductService {
 
 		
 
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public ResponseEntity<?> getImagesProductById(String id) {		
+		
+		Optional<Product> result = productRepository.findByProductId(id);
+		
+		if(result.isPresent())	{
+			List<ProductImage> productImages = result.get().getProductImages();
+			return new ResponseEntity<List<ProductImage>>(productImages, HttpStatus.OK);
+		}
+			
+		else 
+			return new ResponseEntity(new ApiResponse(false, "Specified product is not available!"),
+					HttpStatus.BAD_REQUEST);		
+
+		
 	}
 }

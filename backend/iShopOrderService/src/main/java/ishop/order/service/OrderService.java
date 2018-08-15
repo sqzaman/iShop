@@ -28,6 +28,8 @@ public class OrderService {
 	@Autowired
 	CustomerProxy customerProxy;
 	@Autowired
+	OrderFactory orderFactory;
+	@Autowired
 	EmailSender emailSender;
 	@Autowired
 	Logger logger;
@@ -62,7 +64,7 @@ public class OrderService {
 	public ResponseEntity<?> createOrder(ShoppingCartDto shoppingCartDto, UserPrincipal currentUser) {	
 		CustomerDto customerDto = customerProxy.getOrderCustomer(currentUser.getId());
 		if(customerDto != null) {
-			Order order = OrderFactory.createOrder(shoppingCartDto, customerDto);
+			Order order = orderFactory.createOrder(shoppingCartDto, customerDto);
 			Order result = orderRepository.save(order);
 			return new ResponseEntity<Order>(result, HttpStatus.OK);
 		} else {

@@ -1,10 +1,20 @@
 #orders p{
     margin: unset;
 }
-.confirm {
+.confirmed {
     float: right;
     display: inline-block;
     background-color: limegreen;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.placed {
+    float: right;
+    display: inline-block;
+    background-color: yellowgreen;
     color: white;
     padding: 10px;
     border-radius: 10px;

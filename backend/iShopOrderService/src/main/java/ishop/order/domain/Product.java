@@ -8,14 +8,16 @@ public class Product {
 	String name;
 	double price;
 	String description;
+	String productImage;
 
 
-	public Product(String productId, String name, String description, double price) {
+	public Product(String productId, String name, String description, double price, String productImage) {
 		super();
 		this.productId = productId;
 		this.name = name;
 		this.price = price;
 		this.description = description;
+		this.productImage = productImage;
 	}
 
 	public Product() {
@@ -52,6 +54,14 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
 	}
 	
 }
