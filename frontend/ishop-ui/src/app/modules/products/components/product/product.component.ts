@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LocaleStorageService } from '../../../../shared/general-services/locale-storage.service';
 import { ProductsService } from '../../services/products/products.service';
 declare let swal: any;
@@ -17,7 +17,11 @@ export class ProductComponent implements OnInit {
   cart: object;
   dataLoaded: Promise<boolean>;
 
-  constructor(private route: ActivatedRoute, private service: ProductsService, private localeStorage: LocaleStorageService) { }
+  constructor(private router: Router,
+    private route: ActivatedRoute, 
+    private service: ProductsService, 
+    private localeStorage: LocaleStorageService
+  ) { }
 
   ngOnInit() {
     this.quantity = "1";
@@ -38,6 +42,7 @@ export class ProductComponent implements OnInit {
         this.cart = data;
         this.localeStorage.saveCartId(data["cartId"]);
         swal("Done!", "Product added successfly to cart!", "success");
+        this.router.navigateByUrl('products');
       }
     )
   }

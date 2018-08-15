@@ -36,17 +36,15 @@ export class CartComponent implements OnInit {
   }
 
   checkout() {
-    console.log("Checking out ...");
-    /*
     this.service.checkout().subscribe(
       data => { 
         console.log(data);
         this.localeStorage.clearCart();
-        swal("Done!", "Checkout completed successfly!", "success");
-        this.router.navigateByUrl('products');
+        swal("Done!", "Oredr is placed successfly!", "success");
+        this.router.navigateByUrl('orders');
       }
     )
-    */
+    
   }
 
 }
