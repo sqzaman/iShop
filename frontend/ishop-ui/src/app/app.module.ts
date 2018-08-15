@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { JwtInterceptor } from "./app.interceptor";
+import { CartModule } from './modules/cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { JwtInterceptor } from "./app.interceptor";
     HomeModule,
     ProductsModule,
     OrdersModule,
-    AdminModule
+    AdminModule,
+    CartModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
-<h1 class="my-4">Categories</h1>
-<div class="list-group">
-  <a href="#" class="list-group-item" *ngFor="let category of categories">
+<h4 class="my-4 categories-title">Categories</h4>
+<div class="list-group categories">
+  <a href="products/category/get/{{category.id}}" class="list-group-item" *ngFor="let category of categories">
     {{category.name}} ({{category.products.length}})
   </a>
 </div>

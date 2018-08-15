@@ -1,0 +1,33 @@
+.card-footer {
+    position: relative;
+}
+
+.procuct-list-container {
+    margin-top: 50px;
+}
+
+.card-title a{
+    color: #15497d;
+}
+
+.btn-dark {
+    background-color: #ec4f4f;
+    border-color: #ec4f4f;
+}
+
+.btn-dark:hover {
+    background: white;
+    color: #ec4f4f;
+}
+
+.product-price {
+    text-align: left;
+    color: #ec4f4f;
+    font-size: 20px;
+}
+
+.add-to-cart-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}

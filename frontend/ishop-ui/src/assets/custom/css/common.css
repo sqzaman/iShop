@@ -1,9 +1,17 @@
 body {
-padding-top: 54px;
+    padding-top: 54px;
+    font-family: 'Ubuntu';
+}
+
+.bg-dark {
+    background-color: #15497d!important;
 }
 
 @media (min-width: 992px) {
-body {
-    padding-top: 56px;
-}
+    body {
+        padding-top: 56px;
+    }
+    .navbar-expand-lg .navbar-collapse {
+        display: contents !important;
+    }
 }

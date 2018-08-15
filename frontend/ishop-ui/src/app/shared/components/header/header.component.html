@@ -1,33 +1,43 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">iShop</a>
+      <a class="navbar-brand" href="/home">iShop</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/products">Products</a>
+            <a class="nav-link" routerLink="/products" routerLinkActive="active">Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/orders">Orders</a>
+              <a class="nav-link" routerLink="/cart" routerLinkActive="active">Cart</a>
+            </li>
+          <li class="nav-item">
+            <a *ngIf="userLoggedIn" class="nav-link" routerLink="/orders" routerLinkActive="active">Orders</a>
           </li>
+        </ul>
 
-          <li *ngIf="!userLoggedIn" class="nav-item">
-            <a class="nav-link" href="/signup">Signup</a>
-          </li>
-          <li *ngIf="!userLoggedIn" class="nav-item">
-              <a class="nav-link" href="/signin">Signin</a>
+        <ul *ngIf="!userLoggedIn" class="navbar-nav ">
+            <li class="nav-item dropdown">
+                <a routerLink="#" routerLinkActive="active" class="nav-link dropdown-toggle" id="navDropDownLink" 
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navDropDownLink">
+                    <a class="dropdown-item" routerLink="/signup" routerLinkActive="active">Signup</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" routerLink="/signin" routerLinkActive="active">Signin</a>
+                </div>
             </li>
         </ul>
 
         <ul *ngIf="userLoggedIn" class="navbar-nav ">
             <!-- PROFILE DROPDOWN - scrolling off the page to the right -->
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" id="navDropDownLink" 
+                <a routerLink="#" routerLinkActive="active" class="nav-link dropdown-toggle" id="navDropDownLink" 
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Profile
                 </a>
@@ -39,12 +49,10 @@
                         <i class="fa fa-sign-out">&nbsp;</i>
                       Logout</button>
                     <div *ngIf="isAdmin">
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/admin">
-                          <i class="fa fa-dashboard">&nbsp;</i>Admin Dashboard</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/admin">
+                        <i class="fa fa-dashboard">&nbsp;</i>Admin Dashboard</a>
                     </div>
-                     
-
                 </div>
             </li>
         </ul>

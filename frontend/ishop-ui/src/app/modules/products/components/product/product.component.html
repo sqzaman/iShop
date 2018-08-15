@@ -1,0 +1,23 @@
+<div class="product-container">
+    <div class="product-img-container">
+        <img src="http://placehold.it/700x400" alt="product">
+    </div>
+    <div class="product-desc-container" *ngIf="dataLoaded | async">
+        <h3>Product Details</h3>
+        <div>
+            Reference: <span>{{product.productId}}</span>
+        </div>
+        <div>
+            Name: <span>{{product.name}}</span>
+        </div>
+        <div>
+            Price: <span>$ {{product.price}}</span>
+        </div>
+        <div>
+            Description: <span> {{product.description}}</span>
+        </div>
+        <div class="add-to-card-container">
+            <button type="button" class="btn btn-dark">Add to card</button>
+        </div>
+    </div>
+</div>
