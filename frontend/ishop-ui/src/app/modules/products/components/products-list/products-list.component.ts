@@ -25,7 +25,10 @@ export class ProductsListComponent implements OnInit {
         );
     }else{
         this.service.getProducts().subscribe(
-          data => this.products = data
+          data =>   {
+            this.products = data;
+            console.log(this.products);
+          }
         );
     }
   }
