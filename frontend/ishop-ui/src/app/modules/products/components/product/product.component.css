@@ -1,0 +1,37 @@
+.product-container {
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.product-img-container {
+    float: left;
+    right: 0px;
+    top: 0px;
+    border: 4px solid #16497d;
+    margin-right: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.product-img-container img{
+    height: 300px;
+}
+
+.product-desc-container h3{
+    margin-bottom: 50px;
+}
+
+.product-desc-container div {
+    margin: 10px;
+    color: #ff6363;
+}
+
+.product-desc-container div span {
+    color: black;
+}
+
+.add-to-card-container {
+    clear: left;
+    margin-top: 100px !important;
+    text-align: center;
+}

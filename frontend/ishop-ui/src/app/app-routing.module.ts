@@ -10,6 +10,8 @@ import { ProfileEditComponent } from './modules/authentication/components/profil
 import { ProfileOverviewComponent } from './modules/authentication/components/profile/profile-overview/profile-overview.component';
 import { ProfileBillingComponent } from './modules/authentication/components/profile/profile-billing/profile-billing.component';
 import { ProfileShippingComponent } from './modules/authentication/components/profile/profile-shipping/profile-shipping.component';
+import { ProductComponent } from './modules/products/components/product/product.component';
+import { CartComponent } from './modules/cart/components/cart/cart.component';
 
 // admin route import
 import { AdminComponent } from './modules/admin/admin/admin.component';
@@ -21,11 +23,23 @@ import { NewProductComponent } from './modules/admin/admin-product/new-product/n
 import { UploadProductImageComponent } from './modules/admin/admin-product/upload-product-image/upload-product-image.component';
 const routes: Routes = [
     {
-        path: '',
+        path: 'home',
         component: LandingPageComponent
     },
     {
         path: 'products',
+        component: ProductsComponent
+    },
+    {
+        path: 'cart',
+        component: CartComponent
+    },
+    {
+        path: 'products/:id',
+        component: ProductComponent
+    },
+    {
+        path: 'products/category/get/:id',
         component: ProductsComponent
     },
     {

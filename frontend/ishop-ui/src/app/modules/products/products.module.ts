@@ -5,6 +5,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { ProductsComponent } from './components/products/products.component';
 import { Globals } from '../../shared/config/globals.service';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { Globals } from '../../shared/config/globals.service';
   providers: [
     Globals
   ],
-  declarations: [CategoriesComponent, ProductsListComponent, ProductsComponent]
+  declarations: [CategoriesComponent, ProductsListComponent, ProductsComponent, ProductComponent]
 })
 export class ProductsModule { }

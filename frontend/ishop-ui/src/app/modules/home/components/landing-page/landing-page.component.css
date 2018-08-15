@@ -1,0 +1,18 @@
+.homepage-content {
+    text-align: center;
+    margin: 40px;
+}
+
+.home-page-title {
+    color: #16497d;
+}
+
+.home-page-title span{
+    color: #de5050;
+}
+
+@media (min-width: 992px) {
+    .home-page-img {
+        height: 500px;
+    }
+}

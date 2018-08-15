@@ -12,4 +12,12 @@ export class ProductsService {
   getProducts() {
     return this.http.get(this.globals.BASE_API_URL+"product/get");
   }
+
+  getProduct(id: number) {
+    return this.http.get(this.globals.BASE_API_URL+"product/get/"+id);
+  }
+
+  getProductByCategory(id: number) {
+    return this.http.get(this.globals.BASE_API_URL+"product/category/get/"+id);
+  }
 }
