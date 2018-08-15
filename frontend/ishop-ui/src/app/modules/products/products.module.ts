@@ -6,11 +6,13 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { ProductsComponent } from './components/products/products.component';
 import { Globals } from '../../shared/config/globals.service';
 import { ProductComponent } from './components/product/product.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     Globals

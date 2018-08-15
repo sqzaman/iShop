@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LocaleStorageService } from '../../../../shared/general-services/locale-storage.service';
 import { ProductsService } from '../../services/products/products.service';
+declare let swal: any;
 
 @Component({
   selector: 'app-product',
@@ -10,20 +12,32 @@ import { ProductsService } from '../../services/products/products.service';
 export class ProductComponent implements OnInit {
 
   id: number;
+  quantity: string;
   product: object;
+  cart: object;
   dataLoaded: Promise<boolean>;
 
-  constructor(private route: ActivatedRoute, private service: ProductsService) { }
+  constructor(private route: ActivatedRoute, private service: ProductsService, private localeStorage: LocaleStorageService) { }
 
   ngOnInit() {
+    this.quantity = "1";
     this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
     this.service.getProduct(this.id).subscribe(
       data => {
         this.product = data;
-        console.log(this.product);
         this.dataLoaded = Promise.resolve(true);
+      }
+    )
+  }
+
+  addProductToCart(product_id) {
+    this.service.addProductToCart(product_id, this.quantity).subscribe(
+      data =>  {
+        this.cart = data;
+        this.localeStorage.saveCartId(data["cartId"]);
+        swal("Done!", "Product added successfly to cart!", "success");
       }
     )
   }

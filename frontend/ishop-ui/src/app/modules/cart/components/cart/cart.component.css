@@ -1,0 +1,36 @@
+.cart-container{
+    margin-top: 80px;
+}
+
+.cart-title {
+    margin-bottom: 60px;
+}
+
+.cart-title span{
+    color: #de5050;
+}
+
+.checkout-container {
+    text-align: right;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.checkout-btn {
+    width: 200px;
+    background: #de504f;
+    border: 1px solid #de504f;
+    font-size: 20px;
+}
+
+.checkout-btn:hover {
+    background: white;
+    border: 1px solid #de504f;
+    color: #de504f;
+}
+
+.no-item-cart {
+    text-align: center;
+    margin: 100px;
+    color: gray;
+}
