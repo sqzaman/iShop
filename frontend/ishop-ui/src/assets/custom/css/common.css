@@ -7,6 +7,10 @@ body {
     background-color: #15497d!important;
 }
 
+.navbar-expand-lg .navbar-collapse {
+    display: contents !important;
+}
+
 @media (min-width: 992px) {
     body {
         padding-top: 56px;

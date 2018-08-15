@@ -29,7 +29,7 @@
   <div class="row procuct-list-container">
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of products">
       <div class="card h-100">
-        <a href="/products/{{product.productId}}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a href="/products/{{product.productId}}"><img class="card-img-top" src="{{product.productImages[0].fileUri}}" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a href="/products/{{product.productId}}">{{product.name}}</a>
