@@ -20,7 +20,6 @@ import ishop.order.domain.Product;
 import ishop.order.dto.CartLineDto;
 import ishop.order.dto.CustomerDto;
 import ishop.order.dto.ProductImageDto;
-import ishop.order.dto.ProductImagesDto;
 import ishop.order.dto.ShoppingCartDto;
 import ishop.order.integration.ProductProxy;
 

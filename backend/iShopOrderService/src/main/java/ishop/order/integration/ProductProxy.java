@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import ishop.order.dto.CustomerDto;
 import ishop.order.dto.ProductImageDto;
-import ishop.order.dto.ProductImagesDto;
+
 
 
 @Component
